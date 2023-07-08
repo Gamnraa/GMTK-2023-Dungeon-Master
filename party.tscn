@@ -17,7 +17,6 @@ position = Vector2(650, 330)
 
 [node name="cleric" parent="." instance=ExtResource("4_xa0tq")]
 position = Vector2(252, 336)
-scale = Vector2(1, 1)
 
 [connection signal="dead" from="man_at_arms" to="." method="_on_man_at_arms_dead"]
 [connection signal="dead" from="paladin" to="." method="_on_paladin_dead"]
