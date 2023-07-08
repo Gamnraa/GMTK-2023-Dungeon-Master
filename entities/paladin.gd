@@ -3,7 +3,7 @@ extends AnimatedSprite2D
 var health
 var MAX_HEALTH = 120
 var offense = 10
-var defense = 30
+var defense = 40
 
 signal dead
 signal action_revive(target)
@@ -48,6 +48,7 @@ func _on_action_attack(target):
 	health -= damage_in
 	target.health -= damage_out
 	target.attacked.emit()
+	_on_attacked()
 
 
 func _on_attacked():
@@ -56,5 +57,7 @@ func _on_attacked():
 
 
 func _on_action_heal(target):
-	target.health += randi() % target.MAX_HEALTH / 5 + 1
+	var heal = randi() % target.MAX_HEALTH / 8 + 20
+	print("healing ", heal)
+	target.health += heal
 	if target.health > target.MAX_HEALTH: target.health = target.MAX_HEALTH

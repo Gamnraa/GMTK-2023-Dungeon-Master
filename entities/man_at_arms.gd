@@ -50,6 +50,7 @@ func _on_action_attack(target):
 	health -= damage_in
 	target.health -= damage_out
 	target.attacked.emit()
+	_on_attacked()
 
 
 func _on_attacked():
@@ -58,5 +59,7 @@ func _on_attacked():
 
 
 func _on_action_heal(target):
-	target.health += randi() % target.MAX_HEALTH / 10 + 20
+	var heal = randi() % target.MAX_HEALTH / 10 + 15
+	print("healing ", heal)
+	target.health += heal
 	if target.health > target.MAX_HEALTH: target.health = target.MAX_HEALTH

@@ -44,13 +44,15 @@ func on_gain_focus():
 	selected = true
 	if curr_room.next_rooms:
 		for room in curr_room.next_rooms:
-			room.on_gain_focus()
-			room.send_to_room.connect(move_to_room)
+			if room.num_monsters < 3:
+				room.on_gain_focus()
+				room.send_to_room.connect(move_to_room)
 			
 	if curr_room.prev_rooms:
 		for room in curr_room.prev_rooms:
-			room.on_gain_focus()
-			room.send_to_room.connect(move_to_room)
+			if room.num_monsters < 3:
+				room.on_gain_focus()
+				room.send_to_room.connect(move_to_room)
 		
 func on_lose_focus():
 	selected = false
@@ -89,7 +91,7 @@ func _on_mouse_exited():
 
 
 func _on_action_attack(target):
-	var damage_out = randi() % offense * 2 + offense - randi() % target.defense + target.defense
+	var damage_out = randi() % offense * 2 + offense - randi() % target.defense * 2 + target.defense
 	if damage_out <= 0: damage_out = 1
 	var damage_in = randi() % target.offense + target.offense - defense
 	if damage_in <= 0: damage_in = 1

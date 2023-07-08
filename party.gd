@@ -17,30 +17,36 @@ func move_to_room(room):
 	var offset_y = room.get_node("HeroPosition").position.y
 	position = Vector2(room.position.x + offset_x, room.position.y + offset_y)
 
+func heal_or_revive():
+	print("heal_or_revive")
+	if moves_left >= 2 and alive_members.size() < get_children().size():
+		if $cleric.is_dead:
+			$cleric.action_revive.emit()
+			perform_action.emit(2)
+			moves_left -= 2
+			return
+		elif $paladin.is_dead:
+			$paladin.action_revive.emit()
+			perform_action.emit(2)
+			moves_left -= 2
+			return
+		elif $man_at_arms.is_dead:
+			$man_at_arms.action_revive.emit()
+			perform_action.emit(2)
+			moves_left -= 2
+			return
+	var needs_heal = []
+	for hero in alive_members:
+		if hero.health < hero.MAX_HEALTH:
+			needs_heal.append(hero)
+	var target = randi() % needs_heal.size()
+	print("heal ", needs_heal[target])
+	needs_heal[target].action_heal.emit(needs_heal[target])
+	perform_action.emit(1)
+	moves_left -= 1
+
 func get_actions():
 	var num_members_alive = alive_members.size()
-	var heal_or_revive = func():
-		if moves_left >= 2 and num_members_alive < get_children().size():
-			if $cleric.is_dead:
-				$cleric.action_revive.emit()
-				perform_action.emit(2)
-				moves_left -= 2
-				return
-			elif $paladin.is_dead:
-				$paladin.action_revive.emit()
-				perform_action.emit(2)
-				moves_left -= 2
-				return
-			elif $man_at_arms.is_dead:
-				$man_at_arms.action_revive.emit()
-				perform_action.emit(2)
-				moves_left -= 2
-				return
-			var target = randi() % num_members_alive
-			print("heal", alive_members[target])
-			alive_members[target].action_heal.emit()
-			perform_action.emit(1)
-			moves_left -= 1
 		
 	in_combat = curr_room.num_monsters > 0
 	var revive_weight = get_children().size() - num_members_alive * 20
@@ -59,9 +65,9 @@ func get_actions():
 			perform_action.emit(1)
 			moves_left -= 1
 		else:
-			heal_or_revive
+			heal_or_revive()
 	else:
-		var wants_to_attack = heal_weight < (randi() % 71 + 30) / num_members_alive
+		var wants_to_attack = heal_weight < (randi() % 101 + 50) / num_members_alive
 		if wants_to_attack:
 			var target = randi() % curr_room.num_monsters
 			var attacker = randi() %  num_members_alive
@@ -70,7 +76,7 @@ func get_actions():
 			perform_action.emit(1)
 			moves_left -= 1
 		else:
-			heal_or_revive
+			heal_or_revive()
 			
 # Called when the node enters the scene tree for the first time.
 func _ready():
