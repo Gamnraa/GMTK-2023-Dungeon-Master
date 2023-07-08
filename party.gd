@@ -12,6 +12,7 @@ func move_to_room(room):
 	var offset_x = room.get_node("HeroPosition").position.x
 	var offset_y = room.get_node("HeroPosition").position.y
 	position = Vector2(room.position.x + offset_x, room.position.y + offset_y)
+	print(position)
 
 func get_actions():
 	var revive_weight = alive_members.size() - get_children().size() * 20

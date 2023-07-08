@@ -1,6 +1,6 @@
 extends Node2D
 
-
+@export var goblin_spawner: PackedScene
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	start()
@@ -34,6 +34,20 @@ func start():
 	
 	print($room1_1.get_node("HeroPosition").position)
 	$party.move_to_room($room)
+	
+	var goblin = goblin_spawner.instantiate()
+	goblin.move_to_room($room)
+	add_child(goblin)
+	
+	goblin = goblin_spawner.instantiate()
+	goblin.move_to_room($room)
+	add_child(goblin)
+	
+	goblin = goblin_spawner.instantiate()
+	goblin.move_to_room($room)
+	add_child(goblin)
+	
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

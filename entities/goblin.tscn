@@ -18,6 +18,7 @@ animations = [{
 script = ExtResource("1_4ymy6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_owt7c")
 animation = &"idle"
 

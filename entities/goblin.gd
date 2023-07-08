@@ -12,21 +12,20 @@ var is_dead
 var curr_room
 
 func move_to_room(room):
-	room.num_monsters += 1
 	curr_room = room
+	room.num_monsters += 1
 	print(room.num_monsters)
-	var offset_x = room.get_node("MonsterPosition").position.x * room.num_monsters
-	var offset_y = room.get_node("MonsterPosition").position.y * room.num_monsters
+	var offset_x = room.get_node("MonsterPosition").position.x
+	var offset_y = 40 * room.num_monsters
 	position = Vector2(room.position.x + offset_x, room.position.y + offset_y)
 	
+	print(position)
+	
 func _ready():
-	hide()
-	
-	
-func start():
 	show()
 	health = MAX_HEALTH
 	is_dead = false
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
