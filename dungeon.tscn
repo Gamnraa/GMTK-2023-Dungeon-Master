@@ -43,3 +43,19 @@ position = Vector2(55, 272)
 
 [node name="Player" parent="." instance=ExtResource("3_e0vf8")]
 position = Vector2(1110, 273)
+
+[node name="PartyTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="next_turn" from="." to="." method="_on_next_turn"]
+[connection signal="send_to_room" from="room" to="." method="_on_room_send_to_room"]
+[connection signal="send_to_room" from="room1_1" to="." method="_on_room_send_to_room"]
+[connection signal="send_to_room" from="room1_2" to="." method="_on_room_send_to_room"]
+[connection signal="send_to_room" from="room2" to="." method="_on_room_send_to_room"]
+[connection signal="send_to_room" from="room2_2" to="." method="_on_room_send_to_room"]
+[connection signal="send_to_room" from="room2_1" to="." method="_on_room_send_to_room"]
+[connection signal="send_to_room" from="room2_1_1" to="." method="_on_room_send_to_room"]
+[connection signal="send_to_room" from="room2_2_1" to="." method="_on_room_send_to_room"]
+[connection signal="send_to_room" from="room3" to="." method="_on_room_send_to_room"]
+[connection signal="perform_action" from="party" to="." method="_on_party_perform_action"]
+[connection signal="timeout" from="PartyTimer" to="." method="_on_party_timer_timeout"]

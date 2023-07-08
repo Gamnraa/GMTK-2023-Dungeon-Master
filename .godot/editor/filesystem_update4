@@ -14,3 +14,4 @@ res://dungeon.tscn
 res://dungeon.gd
 res://entities/goblin.tscn
 res://entities/goblin.gd
+res://globals.gd
