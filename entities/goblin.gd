@@ -14,8 +14,9 @@ var curr_room
 var mouse_over = false
 var selected = false
 
+
+
 func move_to_room(room):
-	
 	if curr_room: 
 		curr_room.num_monsters -= 1
 		on_lose_focus()
@@ -27,7 +28,7 @@ func move_to_room(room):
 	
 	
 func _input(event):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	if Global.ThePlayer.is_turn and event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if mouse_over:
 			on_gain_focus()
 		
@@ -66,10 +67,8 @@ func _on_dead():
 
 
 func _on_mouse_entered():
-	print("hey")
 	mouse_over = true
 
 
 func _on_mouse_exited():
-	print("h")
 	mouse_over = false
