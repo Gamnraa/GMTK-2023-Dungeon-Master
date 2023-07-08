@@ -15,7 +15,10 @@ var mouse_over = false
 var selected = false
 
 func move_to_room(room):
-	on_lose_focus()
+	
+	if curr_room: 
+		curr_room.num_monsters -= 1
+		on_lose_focus()
 	curr_room = room
 	room.num_monsters += 1
 	var offset_x = room.get_node("MonsterPosition").position.x
@@ -40,14 +43,13 @@ func on_gain_focus():
 		
 func on_lose_focus():
 	selected = false
-	if curr_room:
-		for room in curr_room.next_rooms:
-			room.on_lose_focus()
-			room.send_to_room.disconnect(move_to_room)
+	for room in curr_room.next_rooms:
+		room.on_lose_focus()
+		room.send_to_room.disconnect(move_to_room)
 			
-		for room in curr_room.prev_rooms:
-			room.on_lose_focus()
-			room.send_to_room.disconnect(move_to_room)
+	for room in curr_room.prev_rooms:
+		room.on_lose_focus()
+		room.send_to_room.disconnect(move_to_room)
 	
 func _ready():
 	show()
