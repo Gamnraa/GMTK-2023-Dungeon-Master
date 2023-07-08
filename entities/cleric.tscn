@@ -1,8 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://46lwm1amrp2s"]
+[gd_scene load_steps=5 format=3 uid="uid://46lwm1amrp2s"]
 
 [ext_resource type="PackedScene" uid="uid://c16yn6farik7x" path="res://entities/man_at_arms.tscn" id="1_6b114"]
 [ext_resource type="Script" path="res://entities/cleric.gd" id="2_bmcmn"]
+[ext_resource type="Texture2D" uid="uid://cun1vgqd1mdu2" path="res://art/Healer.png" id="2_hlwob"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4t2i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hlwob")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="cleric" instance=ExtResource("1_6b114")]
 scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_g4t2i")
 script = ExtResource("2_bmcmn")

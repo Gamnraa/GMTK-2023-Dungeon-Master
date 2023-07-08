@@ -12,6 +12,7 @@ offset_right = 200.0
 offset_bottom = 200.0
 
 [node name="floor" type="ColorRect" parent="wall"]
+layout_mode = 0
 offset_left = 2.39999
 offset_top = 2.4
 offset_right = 197.4
