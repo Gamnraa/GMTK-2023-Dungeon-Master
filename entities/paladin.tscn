@@ -19,4 +19,5 @@ sprite_frames = SubResource("SpriteFrames_3hb0g")
 animation = &"idle"
 script = ExtResource("2_h4lor")
 
+[connection signal="action_revive" from="." to="." method="_on_action_revive"]
 [connection signal="dead" from="." to="." method="_on_dead"]

@@ -6,6 +6,11 @@ var offense = 30
 var defense = 10
 
 signal dead
+signal action_revive
+signal action_attack(target)
+signal action_hero_ability
+signal action_heal
+
 var is_dead
 
 # Called when the node enters the scene tree for the first time.
@@ -28,6 +33,6 @@ func _on_dead():
 	pass # Replace with function body.
 
 
-func _on_party_action_revive(target):
+func _on_action_revive():
 	is_dead = false
 	health = MAX_HEALTH / 2
