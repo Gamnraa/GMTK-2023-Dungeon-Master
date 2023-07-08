@@ -25,3 +25,7 @@ func _process(delta):
 
 func _on_dead():
 	pass # Replace with function body.
+
+
+func _on_party_action_revive(target):
+	pass # Replace with function body.
