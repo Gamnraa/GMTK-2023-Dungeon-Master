@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" path="res://room.gd" id="1_ltq06"]
 
-[node name="room" type="Area2D"]
+[node name="room" type="Node2D"]
+process_priority = -1
 position = Vector2(150, 120)
 scale = Vector2(0.85, 0.85)
 script = ExtResource("1_ltq06")
@@ -10,6 +11,7 @@ script = ExtResource("1_ltq06")
 [node name="wall" type="ColorRect" parent="."]
 offset_right = 200.0
 offset_bottom = 200.0
+mouse_filter = 2
 
 [node name="floor" type="ColorRect" parent="wall"]
 layout_mode = 0
@@ -17,6 +19,7 @@ offset_left = 2.39999
 offset_top = 2.4
 offset_right = 197.4
 offset_bottom = 197.4
+mouse_filter = 2
 color = Color(0.419608, 0.419608, 0.419608, 1)
 
 [node name="button" type="Button" parent="."]

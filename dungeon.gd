@@ -1,6 +1,8 @@
 extends Node2D
 
 @export var goblin_spawner: PackedScene
+
+var turn = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	start()
@@ -40,12 +42,10 @@ func start():
 	add_child(goblin)
 	
 	goblin = goblin_spawner.instantiate()
-	goblin.move_to_room($room)
+	goblin.move_to_room($room2)
 	add_child(goblin)
 	
-	goblin = goblin_spawner.instantiate()
-	goblin.move_to_room($room)
-	add_child(goblin)
+	
 	
 	
 

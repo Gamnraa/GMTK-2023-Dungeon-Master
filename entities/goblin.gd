@@ -11,14 +11,35 @@ signal action_attack(target)
 var is_dead
 var curr_room
 
+var mouse_over = false
+
 func move_to_room(room):
 	curr_room = room
 	room.num_monsters += 1
-	print(room.num_monsters)
 	var offset_x = room.get_node("MonsterPosition").position.x
 	var offset_y = 40 * room.num_monsters
 	position = Vector2(room.position.x + offset_x, room.position.y + offset_y)
 	
+func _input(event):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		print(mouse_over)
+		if mouse_over:
+			on_gain_focus()
+		
+func on_gain_focus():
+	for room in curr_room.next_rooms:
+		room.on_gain_focus()
+		room.get_node("button").connect("send_to_room", self, "move_to_room")
+		
+	for room in curr_room.prev_rooms:
+		room.on_gain_focus()
+		
+func on_lose_focus():
+	for room in curr_room.next_rooms:
+		room.on_lose_focus()
+		
+	for room in curr_room.prev_rooms:
+		room.on_lose_focus()
 	
 func _ready():
 	show()
@@ -32,3 +53,13 @@ func _process(delta):
 
 func _on_dead():
 	queue_free()
+
+
+func _on_mouse_entered():
+	print("hey")
+	mouse_over = true
+
+
+func _on_mouse_exited():
+	print("h")
+	mouse_over = false

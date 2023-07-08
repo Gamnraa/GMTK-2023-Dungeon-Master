@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://x26np5e43ra7"]
+[gd_scene load_steps=5 format=3 uid="uid://x26np5e43ra7"]
 
 [ext_resource type="Script" path="res://entities/goblin.gd" id="1_4ymy6"]
 [ext_resource type="Texture2D" uid="uid://7dig3xrbd5ld" path="res://art/goblin.png" id="1_8ragp"]
@@ -14,7 +14,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1hh0n"]
+size = Vector2(23, 29)
+
 [node name="Goblin" type="Area2D"]
+disable_mode = 2
+collision_layer = 4
+collision_mask = 0
+priority = 5.0
 script = ExtResource("1_4ymy6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -22,4 +29,10 @@ scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_owt7c")
 animation = &"idle"
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 4.5)
+shape = SubResource("RectangleShape2D_1hh0n")
+
 [connection signal="dead" from="." to="." method="_on_dead"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
