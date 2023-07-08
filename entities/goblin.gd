@@ -1,9 +1,9 @@
 extends Area2D
 
 var health
-var MAX_HEALTH = 150
-var offense = 5
-var defense = 10
+@export var MAX_HEALTH = 150
+@export var offense = 5
+@export var defense = 10
 
 signal dead
 signal action_attack(target)
@@ -42,23 +42,27 @@ func _input(event):
 		
 func on_gain_focus():
 	selected = true
-	for room in curr_room.next_rooms:
-		room.on_gain_focus()
-		room.send_to_room.connect(move_to_room)
-		
-	for room in curr_room.prev_rooms:
-		room.on_gain_focus()
-		room.send_to_room.connect(move_to_room)
+	if curr_room.next_rooms:
+		for room in curr_room.next_rooms:
+			room.on_gain_focus()
+			room.send_to_room.connect(move_to_room)
+			
+	if curr_room.prev_rooms:
+		for room in curr_room.prev_rooms:
+			room.on_gain_focus()
+			room.send_to_room.connect(move_to_room)
 		
 func on_lose_focus():
 	selected = false
-	for room in curr_room.next_rooms:
-		room.on_lose_focus()
-		room.send_to_room.disconnect(move_to_room)
-			
-	for room in curr_room.prev_rooms:
-		room.on_lose_focus()
-		room.send_to_room.disconnect(move_to_room)
+	if curr_room.next_rooms:
+		for room in curr_room.next_rooms:
+			room.on_lose_focus()
+			room.send_to_room.disconnect(move_to_room)
+	
+	if curr_room.prev_rooms:		
+		for room in curr_room.prev_rooms:
+			room.on_lose_focus()
+			room.send_to_room.disconnect(move_to_room)
 	
 func _ready():
 	show()

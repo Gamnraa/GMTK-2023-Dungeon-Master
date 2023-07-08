@@ -1,15 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://eymj55j4st1x"]
+[gd_scene load_steps=8 format=3 uid="uid://eymj55j4st1x"]
 
 [ext_resource type="Script" path="res://dungeon.gd" id="1_4htoj"]
 [ext_resource type="PackedScene" uid="uid://dld3l004t72k" path="res://room.tscn" id="1_sqd64"]
 [ext_resource type="PackedScene" uid="uid://x26np5e43ra7" path="res://entities/goblin.tscn" id="2_0b16p"]
 [ext_resource type="PackedScene" uid="uid://b15ehv2gu1d4n" path="res://party.tscn" id="2_xa2to"]
+[ext_resource type="PackedScene" uid="uid://gkq3h6uc7inm" path="res://entities/ogre.tscn" id="3_b15vj"]
 [ext_resource type="PackedScene" uid="uid://cmueeposqq4hp" path="res://entities/player.tscn" id="3_e0vf8"]
+[ext_resource type="PackedScene" uid="uid://lfog0l0a6pg2" path="res://entities/slasher.tscn" id="4_kmlmb"]
 
 [node name="dungeon" type="Node2D"]
 position = Vector2(46, 32)
 script = ExtResource("1_4htoj")
 goblin_spawner = ExtResource("2_0b16p")
+ogre_spawner = ExtResource("3_b15vj")
+slasher_spawner = ExtResource("4_kmlmb")
 
 [node name="room" parent="." instance=ExtResource("1_sqd64")]
 position = Vector2(5, 200)
@@ -42,7 +46,7 @@ position = Vector2(925, 200)
 position = Vector2(55, 272)
 
 [node name="Player" parent="." instance=ExtResource("3_e0vf8")]
-position = Vector2(1110, 273)
+position = Vector2(1199, 273)
 
 [node name="PartyTimer" type="Timer" parent="."]
 wait_time = 2.0

@@ -1,6 +1,8 @@
 extends Node2D
 
 @export var goblin_spawner: PackedScene
+@export var ogre_spawner: PackedScene
+@export var slasher_spawner: PackedScene
 
 var turn = 0
 var active_player = turn % 2
@@ -40,15 +42,26 @@ func start():
 	$room2_2_1.prev_rooms.append($room2_2)
 	$room2_2_1.next_rooms.append($room3)
 	
+	$room3.prev_rooms.append($room2_1_1)
+	$room3.prev_rooms.append($room2_2_1)
+	
 	print($room1_1.get_node("HeroPosition").position)
 	$party.move_to_room($room)
 	
 	var goblin = goblin_spawner.instantiate()
-	goblin.move_to_room($room2)
+	goblin.move_to_room($room)
 	add_child(goblin)
 	
 	goblin = goblin_spawner.instantiate()
 	goblin.move_to_room($room2)
+	add_child(goblin)
+	
+	goblin = ogre_spawner.instantiate()
+	goblin.move_to_room($room2)
+	add_child(goblin)
+	
+	goblin = slasher_spawner.instantiate()
+	goblin.move_to_room($room3)
 	add_child(goblin)
 	
 	$Player.start($room3)

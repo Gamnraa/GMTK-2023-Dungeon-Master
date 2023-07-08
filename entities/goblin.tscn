@@ -23,6 +23,8 @@ collision_layer = 4
 collision_mask = 0
 priority = 5.0
 script = ExtResource("1_4ymy6")
+MAX_HEALTH = 100
+offense = 10
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.2, 1.2)

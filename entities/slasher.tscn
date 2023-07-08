@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://lfog0l0a6pg2"]
+
+[ext_resource type="Script" path="res://entities/goblin.gd" id="1_6owyl"]
+[ext_resource type="Texture2D" uid="uid://dlcdrwgcawip5" path="res://art/Slasher.png" id="2_pxecw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1wob0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pxecw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hx0sm"]
+size = Vector2(28, 31)
+
+[node name="slasher" type="Area2D"]
+disable_mode = 2
+script = ExtResource("1_6owyl")
+MAX_HEALTH = 120
+offense = 45
+defense = 7
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1wob0")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0.5)
+shape = SubResource("RectangleShape2D_hx0sm")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

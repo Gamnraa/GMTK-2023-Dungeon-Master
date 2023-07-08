@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://gkq3h6uc7inm"]
+
+[ext_resource type="Script" path="res://entities/goblin.gd" id="1_7vslc"]
+[ext_resource type="Texture2D" uid="uid://cp1tf70knb78d" path="res://art/Ogre.png" id="2_k8lfu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wr1jq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_k8lfu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i0obt"]
+size = Vector2(30, 31)
+
+[node name="ogre" type="Area2D"]
+script = ExtResource("1_7vslc")
+defense = 40
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wr1jq")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_i0obt")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
