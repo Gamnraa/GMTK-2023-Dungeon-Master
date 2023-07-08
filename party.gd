@@ -8,13 +8,18 @@ var curr_room
 signal action_move(destination)
 
 func move_to_room(room):
+	if curr_room:
+		curr_room.has_party = false
+		
 	curr_room = room
+	curr_room.has_party = true
 	var offset_x = room.get_node("HeroPosition").position.x
 	var offset_y = room.get_node("HeroPosition").position.y
 	position = Vector2(room.position.x + offset_x, room.position.y + offset_y)
-	print(position)
 
 func get_actions():
+	in_combat = curr_room.num_monsters > 0
+	
 	var revive_weight = alive_members.size() - get_children().size() * 20
 	#we'll code this logic later. Most of this will likely change
 	if not in_combat:
@@ -42,7 +47,6 @@ func _process(delta):
 func _on_man_at_arms_dead():
 	$man_at_arms.is_dead = true
 	alive_members.erase($man_at_arms)
-
 
 func _on_paladin_dead():
 	$paladin.is_dead = true

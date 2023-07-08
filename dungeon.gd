@@ -8,6 +8,7 @@ var moves_left = 5
 var selected_monster
 
 signal next_turn
+signal heroes_turn
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	start()

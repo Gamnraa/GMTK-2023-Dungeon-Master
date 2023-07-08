@@ -6,10 +6,10 @@ var offense = 10
 var defense = 10
 
 signal dead
-signal action_revive
+signal action_revive(target)
 signal action_attack(target)
 signal action_hero_ability
-signal action_heal
+signal action_heal(target)
 
 var is_dead
 

@@ -16,6 +16,9 @@ var selected = false
 
 
 
+func can_move():
+	return Global.ThePlayer.is_turn and not curr_room.has_party
+
 func move_to_room(room):
 	if curr_room: 
 		curr_room.num_monsters -= 1
@@ -28,7 +31,7 @@ func move_to_room(room):
 	
 	
 func _input(event):
-	if Global.ThePlayer.is_turn and event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	if can_move() and event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if mouse_over:
 			on_gain_focus()
 		
