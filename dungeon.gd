@@ -55,8 +55,8 @@ func start():
 	print("player is active")
 	
 
-func on_use_move():
-	moves_left -= 1
+func on_use_move(amount):
+	moves_left -= amount
 	if moves_left <= 0:
 		next_turn.emit()
 
@@ -68,7 +68,7 @@ func _process(delta):
 
 
 func _on_room_send_to_room(room):
-	on_use_move()
+	on_use_move(1)
 
 func _on_next_turn():
 	print("SWITCH ACTIVE TEAM")
@@ -76,10 +76,19 @@ func _on_next_turn():
 		#player's turn ends
 		$Player.is_turn = false
 		$PartyTimer.start()
+		moves_left = 3
 	else:
 		$Player.is_turn = true
 		$PartyTimer.stop()
+		moves_left = 5
+		
+	turn += 1
+	active_player = turn % 2
 
 
 func _on_party_timer_timeout():
 	$party.get_actions()
+
+
+func _on_party_perform_action(moves):
+	on_use_move(moves)

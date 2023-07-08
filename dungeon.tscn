@@ -57,4 +57,5 @@ wait_time = 2.0
 [connection signal="send_to_room" from="room2_1_1" to="." method="_on_room_send_to_room"]
 [connection signal="send_to_room" from="room2_2_1" to="." method="_on_room_send_to_room"]
 [connection signal="send_to_room" from="room3" to="." method="_on_room_send_to_room"]
+[connection signal="perform_action" from="party" to="." method="_on_party_perform_action"]
 [connection signal="timeout" from="PartyTimer" to="." method="_on_party_timer_timeout"]

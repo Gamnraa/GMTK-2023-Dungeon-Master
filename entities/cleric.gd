@@ -34,5 +34,5 @@ func _on_dead():
 
 
 func _on_action_revive():
-	is_dead = true
+	is_dead = false
 	health = MAX_HEALTH / 2
