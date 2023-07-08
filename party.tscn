@@ -9,15 +9,15 @@
 script = ExtResource("1_yb3o6")
 
 [node name="man_at_arms" parent="." instance=ExtResource("2_lbyk8")]
-position = Vector2(370, 211)
+position = Vector2(0, -52)
 scale = Vector2(1, 1)
 
 [node name="paladin" parent="." instance=ExtResource("3_ome3f")]
-position = Vector2(371, 262)
+position = Vector2(1, -1)
 scale = Vector2(1, 1)
 
 [node name="cleric" parent="." instance=ExtResource("4_xa0tq")]
-position = Vector2(402, 237)
+position = Vector2(32, -26)
 
 [connection signal="dead" from="man_at_arms" to="." method="_on_man_at_arms_dead"]
 [connection signal="dead" from="paladin" to="." method="_on_paladin_dead"]

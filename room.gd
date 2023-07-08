@@ -1,8 +1,8 @@
 extends Area2D
 
 var num_monsters
-var next_rooms
-var prev_rooms
+var next_rooms: Array
+var prev_rooms: Array
 var has_party
 var has_trap
 var has_treasure

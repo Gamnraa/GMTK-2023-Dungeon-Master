@@ -11,3 +11,4 @@ res://entities/cleric.tscn
 res://room.tscn
 res://room.gd
 res://dungeon.tscn
+res://dungeon.gd

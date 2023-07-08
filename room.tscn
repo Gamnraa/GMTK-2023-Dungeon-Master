@@ -28,4 +28,10 @@ offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="HeroPosition" type="Marker2D" parent="."]
+position = Vector2(30, 100)
+
+[node name="MonsterPosition" type="Marker2D" parent="."]
+position = Vector2(170, 100)
+
 [connection signal="pressed" from="button" to="." method="_on_button_pressed"]
