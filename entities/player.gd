@@ -6,7 +6,9 @@ var offense = 1
 var defense = 10
 var gold
 var active = false
-var turn = false
+var is_turn = false
+var moves_left
+
 
 signal dead
 

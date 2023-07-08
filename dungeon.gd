@@ -33,7 +33,7 @@ func start():
 	$room2_2_1.next_rooms.append($room3)
 	
 	print($room1_1.get_node("HeroPosition").position)
-	$party.move_to_room($room3)
+	$party.move_to_room($room)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
