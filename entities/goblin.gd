@@ -19,7 +19,6 @@ func move_to_room(room):
 	var offset_y = 40 * room.num_monsters
 	position = Vector2(room.position.x + offset_x, room.position.y + offset_y)
 	
-	print(position)
 	
 func _ready():
 	show()
