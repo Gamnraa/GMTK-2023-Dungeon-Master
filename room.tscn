@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://dld3l004t72k"]
+
+[ext_resource type="Script" path="res://room.gd" id="1_ltq06"]
+
+[node name="room" type="Area2D"]
+position = Vector2(150, 120)
+scale = Vector2(0.75, 0.75)
+script = ExtResource("1_ltq06")
+
+[node name="wall" type="ColorRect" parent="."]
+offset_right = 200.0
+offset_bottom = 200.0
+
+[node name="floor" type="ColorRect" parent="wall"]
+offset_left = 2.39999
+offset_top = 2.4
+offset_right = 197.4
+offset_bottom = 197.4
+color = Color(0.419608, 0.419608, 0.419608, 1)
+
+[node name="button" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_right = 199.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HeroPosition" type="Marker2D" parent="."]
+position = Vector2(30, 100)
+
+[node name="MonsterPosition" type="Marker2D" parent="."]
+position = Vector2(170, 100)
+
+[connection signal="pressed" from="button" to="." method="_on_button_pressed"]
