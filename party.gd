@@ -2,8 +2,23 @@ extends Node2D
 
 var alive_members
 var moves_left = 0
-# Called when the node enters the scene tree for the first time.
+var in_combat
 
+signal action_move(destination)
+signal action_revive(target)
+signal action_attack(attacker, target)
+signal action_hero_ability(user)
+
+func get_actions():
+	var revive_weight = alive_members.size() - get_children().size() * 20
+	#we'll code this logic later. Most of this will likely change
+	if not in_combat:
+		action_move.emit()
+		moves_left -= 1
+	else:
+		action_attack.emit()
+		moves_left -= 1
+# Called when the node enters the scene tree for the first time.
 func _ready():
 	start()
 	
