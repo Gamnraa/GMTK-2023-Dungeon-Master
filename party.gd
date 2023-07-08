@@ -3,6 +3,7 @@ extends Node2D
 var alive_members
 var moves_left = 0
 var in_combat
+var room
 
 signal action_move(destination)
 
@@ -20,6 +21,7 @@ func _ready():
 	start()
 	
 func start():
+	room = 0
 	alive_members = []
 	#This is fine so long the only children of this node are our chars
 	for child in get_children():

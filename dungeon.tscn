@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://eymj55j4st1x"]
+[gd_scene load_steps=4 format=3 uid="uid://eymj55j4st1x"]
 
 [ext_resource type="PackedScene" uid="uid://dld3l004t72k" path="res://room.tscn" id="1_sqd64"]
+[ext_resource type="PackedScene" uid="uid://b15ehv2gu1d4n" path="res://party.tscn" id="2_xa2to"]
+[ext_resource type="PackedScene" uid="uid://cmueeposqq4hp" path="res://entities/player.tscn" id="3_e0vf8"]
 
 [node name="dungeon" type="Node2D"]
 position = Vector2(46, 32)
@@ -31,3 +33,9 @@ position = Vector2(755, 380)
 
 [node name="room9" parent="." instance=ExtResource("1_sqd64")]
 position = Vector2(925, 200)
+
+[node name="party" parent="." instance=ExtResource("2_xa2to")]
+position = Vector2(-346, 33)
+
+[node name="Player" parent="." instance=ExtResource("3_e0vf8")]
+position = Vector2(1110, 273)
