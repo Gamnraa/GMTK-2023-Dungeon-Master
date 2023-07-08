@@ -3,6 +3,8 @@ extends Node2D
 @export var goblin_spawner: PackedScene
 
 var turn = 0
+var selected_monster
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	start()
@@ -26,7 +28,7 @@ func start():
 	$room2_1.next_rooms.append($room2_1_1)
 	
 	$room2_2.prev_rooms.append($room2)
-	$room2_2.next_rooms.append($room_2_2_1)
+	$room2_2.next_rooms.append($room2_2_1)
 	
 	$room2_1_1.prev_rooms.append($room2_1)
 	$room2_1_1.next_rooms.append($room3)

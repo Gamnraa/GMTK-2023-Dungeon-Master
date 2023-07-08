@@ -12,6 +12,7 @@ var is_dead
 var curr_room
 
 var mouse_over = false
+var selected = false
 
 func move_to_room(room):
 	curr_room = room
@@ -22,17 +23,17 @@ func move_to_room(room):
 	
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		print(mouse_over)
 		if mouse_over:
 			on_gain_focus()
 		
 func on_gain_focus():
 	for room in curr_room.next_rooms:
 		room.on_gain_focus()
-		room.get_node("button").connect("send_to_room", self, "move_to_room")
+		room.send_to_room.connect(move_to_room)
 		
 	for room in curr_room.prev_rooms:
 		room.on_gain_focus()
+		room.send_to_room.connect(move_to_room)
 		
 func on_lose_focus():
 	for room in curr_room.next_rooms:
