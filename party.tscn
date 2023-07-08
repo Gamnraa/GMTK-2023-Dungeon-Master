@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxg38x30g4chr"]
+[gd_scene load_steps=5 format=3 uid="uid://b15ehv2gu1d4n"]
 
 [ext_resource type="Script" path="res://party.gd" id="1_yb3o6"]
 [ext_resource type="PackedScene" uid="uid://c16yn6farik7x" path="res://entities/man_at_arms.tscn" id="2_lbyk8"]
@@ -17,6 +17,7 @@ position = Vector2(650, 330)
 [node name="cleric" parent="." instance=ExtResource("4_xa0tq")]
 position = Vector2(252, 336)
 
+[connection signal="action_revive" from="." to="man_at_arms" method="_on_party_action_revive"]
 [connection signal="dead" from="man_at_arms" to="." method="_on_man_at_arms_dead"]
 [connection signal="dead" from="paladin" to="." method="_on_paladin_dead"]
 [connection signal="dead" from="cleric" to="." method="_on_cleric_dead"]

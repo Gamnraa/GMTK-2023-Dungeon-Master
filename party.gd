@@ -35,14 +35,14 @@ func _process(delta):
 
 
 func _on_man_at_arms_dead():
-	$man_at_arms.dead = true
+	$man_at_arms.is_dead = true
 	alive_members.erase($man_at_arms)
 
 
 func _on_paladin_dead():
-	$paladin.dead = true
+	$paladin.is_dead = true
 	alive_members.erase($paladin)
 
 func _on_cleric_dead():
-	$cleric.dead = true
+	$cleric.is_dead = true
 	alive_members.erase($cleric)

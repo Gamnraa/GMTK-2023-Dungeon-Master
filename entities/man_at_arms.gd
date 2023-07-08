@@ -6,7 +6,7 @@ var offense = 30
 var defense = 10
 
 signal dead
-
+var is_dead
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,6 +16,7 @@ func _ready():
 func start():
 	show()
 	health = MAX_HEALTH
+	is_dead = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,4 +29,5 @@ func _on_dead():
 
 
 func _on_party_action_revive(target):
-	pass # Replace with function body.
+	is_dead = false
+	health = MAX_HEALTH / 2
