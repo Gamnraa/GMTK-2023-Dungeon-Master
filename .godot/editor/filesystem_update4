@@ -1,0 +1,9 @@
+res://entities/player.tscn
+res://entities/player.gd
+res://entities/paladin.tscn
+res://entities/paladin.gd
+res://party.gd
+res://entities/man_at_arms.gd
+res://entities/man_at_arms.tscn
+res://entities/cleric.gd
+res://party.tscn

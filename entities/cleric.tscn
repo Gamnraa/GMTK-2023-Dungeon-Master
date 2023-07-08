@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://46lwm1amrp2s"]
+
+[ext_resource type="PackedScene" uid="uid://c16yn6farik7x" path="res://entities/man_at_arms.tscn" id="1_6b114"]
+[ext_resource type="Script" path="res://entities/cleric.gd" id="2_bmcmn"]
+
+[node name="cleric" instance=ExtResource("1_6b114")]
+script = ExtResource("2_bmcmn")

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://w7iuoxqntqu4"]
+
+[ext_resource type="Texture2D" uid="uid://r1qe2mo1711y" path="res://icon.svg" id="1_w05v4"]
+[ext_resource type="Script" path="res://entities/paladin.gd" id="2_h4lor"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3hb0g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_w05v4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="paladin" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_3hb0g")
+animation = &"idle"
+script = ExtResource("2_h4lor")
+
+[connection signal="dead" from="." to="." method="_on_dead"]

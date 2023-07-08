@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxg38x30g4chr"]
+
+[ext_resource type="Script" path="res://party.gd" id="1_yb3o6"]
+[ext_resource type="PackedScene" uid="uid://c16yn6farik7x" path="res://entities/man_at_arms.tscn" id="2_lbyk8"]
+[ext_resource type="PackedScene" uid="uid://w7iuoxqntqu4" path="res://entities/paladin.tscn" id="3_ome3f"]
+[ext_resource type="PackedScene" uid="uid://46lwm1amrp2s" path="res://entities/cleric.tscn" id="4_xa0tq"]
+
+[node name="party" type="Node2D"]
+script = ExtResource("1_yb3o6")
+
+[node name="man_at_arms" parent="." instance=ExtResource("2_lbyk8")]
+position = Vector2(454, 172)
+
+[node name="paladin" parent="." instance=ExtResource("3_ome3f")]
+position = Vector2(650, 330)
+
+[node name="cleric" parent="." instance=ExtResource("4_xa0tq")]
+position = Vector2(252, 336)

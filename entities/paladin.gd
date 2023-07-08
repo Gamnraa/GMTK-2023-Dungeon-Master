@@ -1,0 +1,27 @@
+extends AnimatedSprite2D
+
+var health
+var MAX_HEALTH = 120
+var offense = 10
+var defense = 30
+
+signal dead
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	hide()
+	
+	
+func start():
+	show()
+	health = MAX_HEALTH
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _on_dead():
+	pass # Replace with function body.
