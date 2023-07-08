@@ -4,6 +4,8 @@ var num_monsters
 var next_rooms
 var prev_rooms
 var has_party
+var has_trap
+var has_treasure
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
