@@ -10,6 +10,7 @@ signal action_revive(target)
 signal action_attack(target)
 signal action_hero_ability
 signal action_heal(target)
+signal attacked
 
 var is_dead
 
@@ -29,10 +30,31 @@ func _process(delta):
 
 
 func _on_dead():
-	pass # Replace with function body.
-
-
+	is_dead = true
+	hide()
 
 func _on_action_revive():
-	is_dead = true
+	show()
+	is_dead = false
 	health = MAX_HEALTH / 2
+
+
+func _on_action_attack(target):
+	var damage_out = randi() % offense * 2 + offense - randi() % target.defense + target.defense
+	if damage_out <= 0: damage_out = 1
+	var damage_in = randi() % target.offense * 2 + target.offense - defense
+	if damage_in <= 0: damage_in = 1
+	print("damage dealt", damage_out, "\ndamage took", damage_in)
+	health -= damage_in
+	target.health -= damage_out
+	target.attacked.emit()
+
+
+func _on_attacked():
+	if health <= 0:
+		dead.emit()
+
+
+func _on_action_heal(target):
+	target.health += randi() % target.MAX_HEALTH / 5 + 1
+	if target.health > target.MAX_HEALTH: target.health = target.MAX_HEALTH
