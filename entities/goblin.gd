@@ -23,8 +23,12 @@ func move_to_room(room):
 	if curr_room: 
 		curr_room.num_monsters -= 1
 		on_lose_focus()
+		curr_room.monsters.erase(self)
+		
 	curr_room = room
 	room.num_monsters += 1
+	curr_room.monsters.append(self)
+	
 	var offset_x = room.get_node("MonsterPosition").position.x
 	var offset_y = 40 * room.num_monsters
 	position = Vector2(room.position.x + offset_x, room.position.y + offset_y)

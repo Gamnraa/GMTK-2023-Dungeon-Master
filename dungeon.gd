@@ -44,7 +44,7 @@ func start():
 	$party.move_to_room($room)
 	
 	var goblin = goblin_spawner.instantiate()
-	goblin.move_to_room($room)
+	goblin.move_to_room($room2)
 	add_child(goblin)
 	
 	goblin = goblin_spawner.instantiate()
@@ -59,6 +59,7 @@ func on_use_move():
 	moves_left -= 1
 	if moves_left <= 0:
 		next_turn.emit()
+
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -74,5 +75,11 @@ func _on_next_turn():
 	if active_player < 1:
 		#player's turn ends
 		$Player.is_turn = false
+		$PartyTimer.start()
 	else:
 		$Player.is_turn = true
+		$PartyTimer.stop()
+
+
+func _on_party_timer_timeout():
+	$party.get_actions()

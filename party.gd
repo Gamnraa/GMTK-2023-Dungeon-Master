@@ -5,7 +5,7 @@ var moves_left = 0
 var in_combat
 var curr_room
 
-signal action_move(destination)
+signal perform_action(moves)
 
 func move_to_room(room):
 	if curr_room:
@@ -19,12 +19,20 @@ func move_to_room(room):
 
 func get_actions():
 	in_combat = curr_room.num_monsters > 0
-	
-	var revive_weight = alive_members.size() - get_children().size() * 20
+	var revive_weight = get_children().size() - alive_members.size() * 20
 	#we'll code this logic later. Most of this will likely change
+	print("perform action")
 	if not in_combat:
-		action_move.emit()
-		moves_left -= 1
+		var heal_weight = 0
+		for hero in alive_members:
+			heal_weight += (hero.MAX_HEALTH - hero.health)
+		var wants_to_move = heal_weight < randi() % 51 + 50
+		if wants_to_move:
+			
+			var destination = randi() % 1
+			move_to_room(curr_room.next_rooms[destination])
+			perform_action.emit(1)
+			moves_left -= 1
 	else:
 		$cleric.action_revive.emit()
 		moves_left -= 1
