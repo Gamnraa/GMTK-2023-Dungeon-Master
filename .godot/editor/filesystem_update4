@@ -15,3 +15,5 @@ res://dungeon.gd
 res://entities/goblin.tscn
 res://entities/goblin.gd
 res://globals.gd
+res://entities/ogre.tscn
+res://entities/slasher.tscn

@@ -1,9 +1,9 @@
 extends Area2D
 
 var health
-var MAX_HEALTH = 150
-var offense = 5
-var defense = 10
+@export var MAX_HEALTH = 150
+@export var offense = 5
+@export var defense = 10
 
 signal dead
 signal action_attack(target)
@@ -29,10 +29,12 @@ func move_to_room(room):
 	curr_room = room
 	room.num_monsters += 1
 	curr_room.monsters.append(self)
-	
-	var offset_x = room.get_node("MonsterPosition").position.x
-	var offset_y = 40 * room.num_monsters
-	position = Vector2(room.position.x + offset_x, room.position.y + offset_y)
+	var i = 1
+	for monster in curr_room.monsters:
+		var offset_x = room.get_node("MonsterPosition").position.x
+		var offset_y = 40 * i
+		i += 1
+		monster.position = Vector2(room.position.x + offset_x, room.position.y + offset_y)
 	
 	
 func _input(event):
@@ -42,23 +44,29 @@ func _input(event):
 		
 func on_gain_focus():
 	selected = true
-	for room in curr_room.next_rooms:
-		room.on_gain_focus()
-		room.send_to_room.connect(move_to_room)
-		
-	for room in curr_room.prev_rooms:
-		room.on_gain_focus()
-		room.send_to_room.connect(move_to_room)
+	if curr_room.next_rooms:
+		for room in curr_room.next_rooms:
+			if room.num_monsters < 3:
+				room.on_gain_focus()
+				room.send_to_room.connect(move_to_room)
+			
+	if curr_room.prev_rooms:
+		for room in curr_room.prev_rooms:
+			if room.num_monsters < 3:
+				room.on_gain_focus()
+				room.send_to_room.connect(move_to_room)
 		
 func on_lose_focus():
 	selected = false
-	for room in curr_room.next_rooms:
-		room.on_lose_focus()
-		room.send_to_room.disconnect(move_to_room)
-			
-	for room in curr_room.prev_rooms:
-		room.on_lose_focus()
-		room.send_to_room.disconnect(move_to_room)
+	if curr_room.next_rooms:
+		for room in curr_room.next_rooms:
+			room.on_lose_focus()
+			room.send_to_room.disconnect(move_to_room)
+	
+	if curr_room.prev_rooms:		
+		for room in curr_room.prev_rooms:
+			room.on_lose_focus()
+			room.send_to_room.disconnect(move_to_room)
 	
 func _ready():
 	show()
@@ -85,14 +93,15 @@ func _on_mouse_exited():
 
 
 func _on_action_attack(target):
-	var damage_out = randi() % offense * 2 + offense - randi() % target.defense + target.defense
+	var damage_out = (randi() % offense * 2 + offense) - (randi() % target.defense + target.defense)
 	if damage_out <= 0: damage_out = 1
-	var damage_in = randi() % target.offense + target.offense - defense
+	var damage_in = (randi() % target.offense + target.offense) - defense
 	if damage_in <= 0: damage_in = 1
 	print("damage dealt", damage_out, "\ndamage took", damage_in)
 	health -= damage_in
 	target.health -= damage_out
 	target.attacked.emit()
+	_on_attacked()
 
 
 func _on_attacked():
