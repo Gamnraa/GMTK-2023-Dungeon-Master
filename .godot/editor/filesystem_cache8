@@ -1,3 +1,15 @@
 2a60927148abd1d33b818b535e306557
-::res://::1688775873
+::res://::1688784093
 icon.svg::CompressedTexture2D::1247864215852223956::1688775867::1688775874::1::::<><>::
+README.md::TextFile::-1::1688776051::0::1::::<><>::
+party.gd::GDScript::-1::1688784183::0::1::::<>Node2D<>::
+party.tscn::PackedScene::6401331297018251119::1688784183::0::1::::<><>::res://party.gd<>uid://c16yn6farik7x<>uid://w7iuoxqntqu4
+cleric.gd::GDScript::-1::1688784237::0::1::::<>AnimatedSprite2D<>::
+::res://art/::1688779922
+::res://entities/::1688784101
+paladin.gd::GDScript::-1::1688784131::0::1::::<>AnimatedSprite2D<>::
+player.gd::GDScript::-1::1688783229::0::1::::<>AnimatedSprite2D<>::
+player.tscn::PackedScene::5656645867587867313::1688783229::0::1::::<><>::uid://r1qe2mo1711y<>res://entities/player.gd
+paladin.tscn::PackedScene::1610736871589363629::1688784131::0::1::::<><>::uid://r1qe2mo1711y<>res://entities/paladin.gd
+man_at_arms.tscn::PackedScene::6663229071468977295::1688784141::0::1::::<><>::uid://w7iuoxqntqu4<>res://entities/man_at_arms.gd
+man_at_arms.gd::GDScript::-1::1688784141::0::1::::<>AnimatedSprite2D<>::
