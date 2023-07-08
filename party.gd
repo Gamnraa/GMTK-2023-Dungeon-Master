@@ -56,6 +56,7 @@ func get_actions():
 	for hero in alive_members:
 		heal_weight += (hero.MAX_HEALTH - hero.health)
 		
+	print(heal_weight)
 	if not in_combat:
 		
 		var wants_to_move = heal_weight < randi() % 31 + 50

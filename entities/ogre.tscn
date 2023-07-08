@@ -19,7 +19,7 @@ size = Vector2(30, 31)
 
 [node name="ogre" type="Area2D"]
 script = ExtResource("1_7vslc")
-defense = 40
+defense = 50
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wr1jq")
@@ -29,5 +29,8 @@ animation = &"idle"
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_i0obt")
 
+[connection signal="action_attack" from="." to="." method="_on_action_attack"]
+[connection signal="attacked" from="." to="." method="_on_attacked"]
+[connection signal="dead" from="." to="." method="_on_dead"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

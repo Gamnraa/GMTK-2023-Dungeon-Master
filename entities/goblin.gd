@@ -29,10 +29,12 @@ func move_to_room(room):
 	curr_room = room
 	room.num_monsters += 1
 	curr_room.monsters.append(self)
-	
-	var offset_x = room.get_node("MonsterPosition").position.x
-	var offset_y = 40 * room.num_monsters
-	position = Vector2(room.position.x + offset_x, room.position.y + offset_y)
+	var i = 1
+	for monster in curr_room.monsters:
+		var offset_x = room.get_node("MonsterPosition").position.x
+		var offset_y = 40 * i
+		i += 1
+		monster.position = Vector2(room.position.x + offset_x, room.position.y + offset_y)
 	
 	
 func _input(event):
@@ -91,14 +93,15 @@ func _on_mouse_exited():
 
 
 func _on_action_attack(target):
-	var damage_out = randi() % offense * 2 + offense - randi() % target.defense * 2 + target.defense
+	var damage_out = (randi() % offense * 2 + offense) - (randi() % target.defense + target.defense)
 	if damage_out <= 0: damage_out = 1
-	var damage_in = randi() % target.offense + target.offense - defense
+	var damage_in = (randi() % target.offense + target.offense) - defense
 	if damage_in <= 0: damage_in = 1
 	print("damage dealt", damage_out, "\ndamage took", damage_in)
 	health -= damage_in
 	target.health -= damage_out
 	target.attacked.emit()
+	_on_attacked()
 
 
 func _on_attacked():

@@ -32,5 +32,8 @@ animation = &"idle"
 position = Vector2(-2, 0.5)
 shape = SubResource("RectangleShape2D_hx0sm")
 
+[connection signal="action_attack" from="." to="." method="_on_action_attack"]
+[connection signal="attacked" from="." to="." method="_on_attacked"]
+[connection signal="dead" from="." to="." method="_on_dead"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
