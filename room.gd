@@ -1,6 +1,6 @@
 extends Area2D
 
-var num_monsters
+var num_monsters = 0
 var next_rooms: Array
 var prev_rooms: Array
 var has_party

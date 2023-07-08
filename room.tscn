@@ -33,6 +33,6 @@ grow_vertical = 2
 position = Vector2(30, 100)
 
 [node name="MonsterPosition" type="Marker2D" parent="."]
-position = Vector2(170, 100)
+position = Vector2(120, 100)
 
 [connection signal="pressed" from="button" to="." method="_on_button_pressed"]

@@ -1,6 +1,6 @@
+AnimatedSprite2D
+Area2D
 Marker2D
 Button
 ColorRect
 CollisionShape2D
-Area2D
-AnimatedSprite2D
