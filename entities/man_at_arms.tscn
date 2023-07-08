@@ -1,7 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://c16yn6farik7x"]
+[gd_scene load_steps=5 format=3 uid="uid://c16yn6farik7x"]
 
 [ext_resource type="PackedScene" uid="uid://w7iuoxqntqu4" path="res://entities/paladin.tscn" id="1_wp4wd"]
+[ext_resource type="Texture2D" uid="uid://bbu83f3erv7bl" path="res://art/Man-at-arms.png" id="2_bbw16"]
 [ext_resource type="Script" path="res://entities/man_at_arms.gd" id="2_pr7ix"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_3viod"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bbw16")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
 [node name="man_at_arms" instance=ExtResource("1_wp4wd")]
+sprite_frames = SubResource("SpriteFrames_3viod")
 script = ExtResource("2_pr7ix")
