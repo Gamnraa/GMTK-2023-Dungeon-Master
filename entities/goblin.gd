@@ -43,9 +43,11 @@ func on_lose_focus():
 	if curr_room:
 		for room in curr_room.next_rooms:
 			room.on_lose_focus()
+			room.send_to_room.disconnect(move_to_room)
 			
 		for room in curr_room.prev_rooms:
 			room.on_lose_focus()
+			room.send_to_room.disconnect(move_to_room)
 	
 func _ready():
 	show()
