@@ -4,4 +4,5 @@
 [ext_resource type="Script" path="res://entities/cleric.gd" id="2_bmcmn"]
 
 [node name="cleric" instance=ExtResource("1_6b114")]
+scale = Vector2(1, 1)
 script = ExtResource("2_bmcmn")
