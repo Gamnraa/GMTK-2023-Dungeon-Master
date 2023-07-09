@@ -36,34 +36,34 @@ offset_bottom = 711.0
 color = Color(0.623529, 0.623529, 0.623529, 1)
 
 [node name="TurnBlank3" type="Sprite2D" parent="."]
-position = Vector2(139, 597)
+position = Vector2(160, 597)
 scale = Vector2(1.9375, 1)
 texture = ExtResource("9_ojojx")
 
 [node name="TurnBlank2" type="Sprite2D" parent="."]
-position = Vector2(61, 678)
+position = Vector2(82, 678)
 texture = ExtResource("9_ojojx")
 
 [node name="TitleGold" type="Sprite2D" parent="."]
-position = Vector2(138, 568)
+position = Vector2(159, 568)
 texture = ExtResource("1_xhl3e")
 
 [node name="TitleMoves" type="Sprite2D" parent="."]
-position = Vector2(62, 644)
+position = Vector2(83, 644)
 texture = ExtResource("2_yfafi")
 
 [node name="TitleTurn" type="Sprite2D" parent="."]
-position = Vector2(139, 644)
+position = Vector2(160, 644)
 texture = ExtResource("4_817w1")
 
 [node name="TitleMonsters" type="Sprite2D" parent="."]
-position = Vector2(60, 568)
+position = Vector2(81, 568)
 texture = ExtResource("6_r62ac")
 
 [node name="ButtonGoblin" type="TextureButton" parent="."]
-offset_left = 29.0
+offset_left = 50.0
 offset_top = 581.0
-offset_right = 93.0
+offset_right = 114.0
 offset_bottom = 597.0
 texture_normal = ExtResource("6_ltea7")
 texture_pressed = ExtResource("8_1lclq")
@@ -71,9 +71,9 @@ texture_hover = ExtResource("5_2ru4m")
 texture_disabled = ExtResource("6_esscs")
 
 [node name="ButtonSlasher" type="TextureButton" parent="."]
-offset_left = 29.0
+offset_left = 50.0
 offset_top = 613.0
-offset_right = 93.0
+offset_right = 114.0
 offset_bottom = 629.0
 texture_normal = ExtResource("7_qawbx")
 texture_pressed = ExtResource("12_5jnxh")
@@ -81,9 +81,9 @@ texture_hover = ExtResource("8_6mcwu")
 texture_disabled = ExtResource("9_0iiw7")
 
 [node name="ButtonOgre" type="TextureButton" parent="."]
-offset_left = 29.0
+offset_left = 50.0
 offset_top = 597.0
-offset_right = 93.0
+offset_right = 114.0
 offset_bottom = 613.0
 texture_normal = ExtResource("8_bmkgb")
 texture_pressed = ExtResource("16_pxxoh")
@@ -91,24 +91,24 @@ texture_hover = ExtResource("11_fywg5")
 texture_disabled = ExtResource("12_cfkjb")
 
 [node name="TurnBlank" type="Sprite2D" parent="."]
-position = Vector2(138, 677)
+position = Vector2(159, 677)
 texture = ExtResource("9_ojojx")
 
 [node name="TurnHeroes" type="Sprite2D" parent="."]
-position = Vector2(138, 677)
+position = Vector2(159, 677)
 texture = ExtResource("10_lxbf2")
 
 [node name="TurnMonsters" type="Sprite2D" parent="."]
-position = Vector2(138, 677)
+position = Vector2(159, 677)
 texture = ExtResource("11_hh1jk")
 
 [node name="Message1" type="Label" parent="."]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 185.0
+offset_left = 206.0
 offset_top = -57.0
-offset_right = 396.0
+offset_right = 417.0
 offset_bottom = -18.0
 grow_vertical = 0
 size_flags_horizontal = 0
@@ -122,9 +122,9 @@ horizontal_alignment = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 185.0
+offset_left = 206.0
 offset_top = -151.0
-offset_right = 396.0
+offset_right = 417.0
 offset_bottom = -112.0
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -136,9 +136,9 @@ horizontal_alignment = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 185.0
+offset_left = 206.0
 offset_top = -105.0
-offset_right = 396.0
+offset_right = 417.0
 offset_bottom = -66.0
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -150,9 +150,9 @@ horizontal_alignment = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 108.0
+offset_left = 129.0
 offset_top = -136.0
-offset_right = 172.0
+offset_right = 193.0
 offset_bottom = -95.0
 grow_vertical = 0
 size_flags_horizontal = 0
@@ -166,9 +166,9 @@ horizontal_alignment = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 40.0
+offset_left = 61.0
 offset_top = -60.0
-offset_right = 88.0
+offset_right = 109.0
 offset_bottom = -19.0
 grow_vertical = 0
 size_flags_horizontal = 0
@@ -210,3 +210,59 @@ grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("16_i11dh")
 text = "Cancel"
+
+[node name="EndTurnMessage" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 87.0
+offset_top = -43.0
+offset_right = 507.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_i11dh")
+theme_override_font_sizes/font_size = 30
+text = "Press ENTER to end your turn"
+
+[node name="OgreCost" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = -123.0
+offset_right = 58.0
+offset_bottom = -108.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_i11dh")
+text = "$150"
+
+[node name="GoblinCost" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = -139.0
+offset_right = 58.0
+offset_bottom = -124.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_i11dh")
+text = "$70"
+
+[node name="OgreCost2" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = -106.0
+offset_right = 58.0
+offset_bottom = -91.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_i11dh")
+text = "$400"

@@ -19,3 +19,5 @@ position = Vector2(553, 333)
 sprite_frames = SubResource("SpriteFrames_5hbln")
 animation = &"idle"
 script = ExtResource("2_rowfg")
+
+[connection signal="attacked" from="." to="." method="_on_attacked"]

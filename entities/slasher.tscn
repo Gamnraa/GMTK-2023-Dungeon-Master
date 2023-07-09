@@ -20,7 +20,7 @@ size = Vector2(28, 31)
 [node name="slasher" type="Area2D" groups=["monsters"]]
 disable_mode = 2
 script = ExtResource("1_6owyl")
-MAX_HEALTH = 120
+MAX_HEALTH = 90
 offense = 45
 defense = 7
 entity_name = "SLASHER"

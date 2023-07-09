@@ -22,6 +22,7 @@ script = ExtResource("1_4htoj")
 goblin_spawner = ExtResource("2_0b16p")
 ogre_spawner = ExtResource("3_b15vj")
 slasher_spawner = ExtResource("4_kmlmb")
+treasure_spawner = ExtResource("11_ig0ev")
 
 [node name="bg1" type="TextureRect" parent="."]
 offset_left = -41.0
@@ -166,12 +167,6 @@ offset_right = 1897.0
 offset_bottom = 401.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Treasure_room2" parent="." instance=ExtResource("11_ig0ev")]
-position = Vector2(725, 282)
-
-[node name="Treasure_room2_1_1" parent="." instance=ExtResource("11_ig0ev")]
-position = Vector2(1443, 186)
-
 [node name="party" parent="." instance=ExtResource("2_xa2to")]
 position = Vector2(-4, 86)
 
@@ -185,6 +180,9 @@ wait_time = 2.0
 
 [node name="Camera2D" parent="." instance=ExtResource("13_clalo")]
 position = Vector2(559, 360)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
 
 [connection signal="gold_changed" from="." to="HUD" method="on_update_gold"]
 [connection signal="heroes_turn" from="." to="HUD" method="on_player_turn_end"]
@@ -200,5 +198,8 @@ position = Vector2(559, 360)
 [connection signal="send_to_room" from="room2_1_1" to="." method="_on_room_send_to_room"]
 [connection signal="send_to_room" from="room2_2_1" to="." method="_on_room_send_to_room"]
 [connection signal="send_to_room" from="room3" to="." method="_on_room_send_to_room"]
+[connection signal="defeated" from="party" to="." method="_on_party_defeated"]
 [connection signal="perform_action" from="party" to="." method="_on_party_perform_action"]
+[connection signal="dead" from="Player" to="." method="_on_player_dead"]
 [connection signal="timeout" from="PartyTimer" to="." method="_on_party_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

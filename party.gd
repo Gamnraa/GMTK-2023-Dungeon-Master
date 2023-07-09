@@ -8,6 +8,7 @@ var active = false
 var selectable = false
 
 signal perform_action(moves)
+signal defeated
 
 func move_to_room(room):
 	if curr_room:
@@ -18,7 +19,8 @@ func move_to_room(room):
 	var offset_x = room.get_node("HeroPosition").position.x
 	var offset_y = room.get_node("HeroPosition").position.y
 	position = Vector2(room.position.x + offset_x, room.position.y + offset_y)
-	if room.treasure and room.has_party and room.num_monsters < 1:
+	if room.has_treasure and room.has_party and room.num_monsters < 1:
+		room.has_treasure = false
 		room.treasure.queue_free()
 		Global.TheDungeon.received_message.emit("HEROES have cleared a room of treasure!")
 
@@ -66,7 +68,7 @@ func get_actions():
 		
 		var wants_to_move = heal_weight < randi() % 31 + 50
 		if wants_to_move:
-			var destination = randi() % 1
+			var destination = randi() % curr_room.next_rooms.size()
 			move_to_room(curr_room.next_rooms[destination])
 			perform_action.emit(1)
 			moves_left -= 1
@@ -87,7 +89,6 @@ func get_actions():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.TheParty = self
-	start()
 	
 func start():
 	alive_members = [$man_at_arms, $paladin, $cleric]
@@ -101,14 +102,17 @@ func _process(delta):
 func _on_man_at_arms_dead():
 	$man_at_arms.is_dead = true
 	alive_members.erase($man_at_arms)
+	if alive_members.size() < 1: defeated.emit()
 
 func _on_paladin_dead():
 	$paladin.is_dead = true
 	alive_members.erase($paladin)
+	if alive_members.size() < 1: defeated.emit()
 
 func _on_cleric_dead():
 	$cleric.is_dead = true
 	alive_members.erase($cleric)
+	if alive_members.size() < 1: defeated.emit()
 
 
 func _on_mouse_entered():

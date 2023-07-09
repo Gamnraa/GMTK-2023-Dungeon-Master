@@ -1,7 +1,8 @@
+Timer
+Label
 Area2D
 CollisionShape2D
 Sprite2D
-Label
 TextureButton
 TextureRect
 ColorRect
@@ -9,6 +10,5 @@ CanvasLayer
 Camera2D
 Button
 AnimatedSprite2D
-Timer
 Node2D
 Marker2D

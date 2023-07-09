@@ -7,16 +7,22 @@ var prev_rooms: Array
 var has_party
 var has_trap
 var treasure
+var has_treasure
 
 signal send_to_room(room)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	start()
+	pass
 
 func start():
 	self.disabled = true
 	self.mouse_filter = 2
+	monsters = []
+	num_monsters = 0
+	has_party = false
+	has_trap = false
+	has_treasure = false
 	
 func on_gain_focus():
 	self.disabled = false

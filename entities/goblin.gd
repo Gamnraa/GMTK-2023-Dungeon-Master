@@ -5,6 +5,7 @@ var health
 @export var offense = 5
 @export var defense = 10
 @export var entity_name = "GOBLIN"
+var movable = true
 
 signal dead
 signal action_attack(target)
@@ -35,7 +36,7 @@ func move_to_room(room):
 		var offset_x = room.get_node("MonsterPosition").position.x
 		var offset_y = 40 * i
 		i += 1
-		monster.position = Vector2(room.position.x + offset_x, room.position.y + offset_y)
+		if monster.movable: monster.position = Vector2(room.position.x + offset_x, room.position.y + offset_y)
 	
 	
 func _input(event):
@@ -85,6 +86,7 @@ func _ready():
 	show()
 	health = MAX_HEALTH
 	is_dead = false
+	movable = true
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -114,10 +116,11 @@ func _on_action_attack(target):
 	print("damage dealt", damage_out, "\ndamage took", damage_in)
 	health -= damage_in
 	target.health -= damage_out
-	target.attacked.emit()
-	_on_attacked()
 	var message = entity_name + " (" + str(damage_in) + " dmg) attacked " + target.entity_name + "(" + str(damage_out) + " dmg)!"
 	Global.TheDungeon.received_message.emit(message)
+	target.attacked.emit()
+	_on_attacked()
+	
 	
 	on_lose_focus()
 

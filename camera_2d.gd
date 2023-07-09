@@ -13,7 +13,7 @@ func _process(delta):
 
 
 func _on_left_bound_mouse_entered():
-	velocity = -3
+	velocity = -6
 	print("left")
 
 
@@ -22,7 +22,7 @@ func _on_left_bound_mouse_exited():
 
 
 func _on_right_bound_mouse_entered():
-	velocity = 3
+	velocity = 6
 
 
 func _on_right_bound_mouse_exited():

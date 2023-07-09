@@ -3,7 +3,7 @@ extends CanvasLayer
 var messages = ["", "", ""]
 var message_labels = [$Message1, $Message2, $Message3]
 var goblin_cost = 70
-var slasher_cost = 200
+var slasher_cost = 400
 var ogre_cost = 150
 
 
@@ -42,6 +42,7 @@ func on_player_turn_start():
 	$TurnMonsters.show()
 	$TurnHeroes.hide()
 	$MovesLabel.text = str(Global.TheDungeon.moves_left)
+	$EndTurnMessage.show()
 	
 func on_player_turn_end():
 	disable_buy($ButtonGoblin)
@@ -51,6 +52,7 @@ func on_player_turn_end():
 	$TurnMonsters.hide()
 	$TurnHeroes.show()
 	$MovesLabel.text = str(Global.TheDungeon.moves_left)
+	$EndTurnMessage.hide()
 	
 func on_update_gold():
 	var amount = Global.ThePlayer.gold
