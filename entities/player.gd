@@ -21,7 +21,7 @@ func _ready():
 func start(room):
 	show()
 	health = 100
-	gold = 100
+	gold = 1000
 	active = true
 	is_turn = true
 	

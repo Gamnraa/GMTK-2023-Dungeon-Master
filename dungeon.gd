@@ -72,6 +72,8 @@ func start():
 	print("player is active")
 	$HUD.on_player_turn_start()
 	$HUD.get_node("ButtonGoblin").pressed.connect(on_begin_purchase_goblin)
+	$HUD.get_node("ButtonOgre").pressed.connect(on_begin_purchase_ogre)
+	$HUD.get_node("ButtonSlasher").pressed.connect(on_begin_purchase_slasher)
 	$HUD.get_node("ButtonX").pressed.connect(on_cancel_purchase)
 	
 
@@ -144,6 +146,64 @@ func on_purchase_goblin(room):
 	
 	for r in get_tree().get_nodes_in_group("rooms"):
 		r.send_to_room.disconnect(on_purchase_goblin)
+		r.on_lose_focus()
+	
+	$HUD.get_node("ButtonX").hide()
+	$HUD.get_node("CancelLabel").hide()
+	
+	
+	
+	
+	
+func on_begin_purchase_ogre():
+	var rooms = get_rooms_open()
+	for room in rooms:
+		room.on_gain_focus()
+		room.send_to_room.connect(on_purchase_ogre)
+		
+	$HUD.get_node("ButtonX").show()
+	$HUD.get_node("CancelLabel").show()
+
+func on_purchase_ogre(room):
+	$Player.gold -= $HUD.ogre_cost
+	gold_changed.emit()
+	
+	var mob = ogre_spawner.instantiate()
+	mob.move_to_room(room)
+	mob.on_lose_focus()
+	add_child(mob)
+	
+	for r in get_tree().get_nodes_in_group("rooms"):
+		r.send_to_room.disconnect(on_purchase_ogre)
+		r.on_lose_focus()
+	
+	$HUD.get_node("ButtonX").hide()
+	$HUD.get_node("CancelLabel").hide()
+
+
+
+
+
+func on_begin_purchase_slasher():
+	var rooms = get_rooms_open()
+	for room in rooms:
+		room.on_gain_focus()
+		room.send_to_room.connect(on_purchase_slasher)
+		
+	$HUD.get_node("ButtonX").show()
+	$HUD.get_node("CancelLabel").show()
+
+func on_purchase_slasher(room):
+	$Player.gold -= $HUD.slasher_cost
+	gold_changed.emit()
+	
+	var mob = slasher_spawner.instantiate()
+	mob.move_to_room(room)
+	mob.on_lose_focus()
+	add_child(mob)
+	
+	for r in get_tree().get_nodes_in_group("rooms"):
+		r.send_to_room.disconnect(on_purchase_slasher)
 		r.on_lose_focus()
 	
 	$HUD.get_node("ButtonX").hide()

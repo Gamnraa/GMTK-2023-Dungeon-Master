@@ -2,9 +2,9 @@ extends CanvasLayer
 
 var messages = ["", "", ""]
 var message_labels = [$Message1, $Message2, $Message3]
-var goblin_cost = 50
-var slasher_cost = 120
-var ogre_cost = 90
+var goblin_cost = 70
+var slasher_cost = 200
+var ogre_cost = 150
 
 
 

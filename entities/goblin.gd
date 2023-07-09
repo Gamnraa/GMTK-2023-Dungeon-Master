@@ -82,6 +82,7 @@ func _process(delta):
 func _on_dead():
 	curr_room.num_monsters -= 1
 	curr_room.monsters.erase(self)
+	Global.TheDungeon.received_message.emit(entity_name + " defeated!")
 	queue_free()
 
 
@@ -103,6 +104,8 @@ func _on_action_attack(target):
 	target.health -= damage_out
 	target.attacked.emit()
 	_on_attacked()
+	var message = entity_name + " (" + str(damage_in) + " dmg) attacked " + target.entity_name + "(" + str(damage_out) + " dmg)!"
+	Global.TheDungeon.received_message.emit(message)
 
 
 func _on_attacked():

@@ -2,8 +2,9 @@ extends AnimatedSprite2D
 
 var health
 var MAX_HEALTH = 180
-var offense = 10
+var offense = 15
 var defense = 15
+var entity_name = "CLERIC"
 
 signal dead
 signal action_revive(target)
@@ -33,12 +34,14 @@ func _process(delta):
 func _on_dead():
 	hide()
 	is_dead = true
+	Global.TheDungeon.received_message.emit("CLERIC defeated!")
 
 
 func _on_action_revive():
 	show()
 	is_dead = false
 	health = MAX_HEALTH
+	Global.TheDungeon.received_message.emit("CLERIC revived!")
 
 
 func _on_action_attack(target):
@@ -60,7 +63,9 @@ func _on_attacked():
 
 
 func _on_action_heal(target):
-	var heal = randi() % target.MAX_HEALTH / 3 + 40
+	var heal = randi() % target.MAX_HEALTH / 5 + 30
 	print("healing ", heal)
 	target.health += heal
 	if target.health > target.MAX_HEALTH: target.health = target.MAX_HEALTH
+	var message = "CLERIC healed " + str(heal) + " health!"
+	Global.TheDungeon.received_message.emit(message)
