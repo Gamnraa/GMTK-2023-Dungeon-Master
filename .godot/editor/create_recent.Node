@@ -1,3 +1,4 @@
+TextureRect
 CollisionShape2D
 AnimatedSprite2D
 Area2D

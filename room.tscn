@@ -9,11 +9,13 @@ scale = Vector2(0.85, 0.85)
 script = ExtResource("1_ltq06")
 
 [node name="wall" type="ColorRect" parent="."]
+visible = false
 offset_right = 200.0
 offset_bottom = 200.0
 mouse_filter = 2
 
 [node name="floor" type="ColorRect" parent="wall"]
+visible = false
 layout_mode = 0
 offset_left = 2.39999
 offset_top = 2.4

@@ -2,7 +2,7 @@ extends AnimatedSprite2D
 
 var health
 var MAX_HEALTH = 120
-var offense = 10
+var offense = 15
 var defense = 50
 
 signal dead
