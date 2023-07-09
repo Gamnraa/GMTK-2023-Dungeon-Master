@@ -1,4 +1,4 @@
-extends Node2D
+extends Button
 
 var num_monsters = 0
 var monsters: Array
@@ -15,16 +15,16 @@ func _ready():
 	start()
 
 func start():
-	$button.disabled = true
-	$button.mouse_filter = 2
+	self.disabled = true
+	self.mouse_filter = 2
 	
 func on_gain_focus():
-	$button.disabled = false
-	$button.mouse_filter = 0
+	self.disabled = false
+	self.mouse_filter = 0
 	
 func on_lose_focus():
-	$button.disabled = true
-	$button.mouse_filter = 2
+	self.disabled = true
+	self.mouse_filter = 2
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

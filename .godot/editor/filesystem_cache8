@@ -1,15 +1,16 @@
 2a60927148abd1d33b818b535e306557
-::res://::1688861677
+::res://::1688864011
 icon.svg::CompressedTexture2D::1247864215852223956::1688775867::1688775874::1::::<><>::
 party.gd::GDScript::-1::1688860588::0::1::::<>Node2D<>::
-party.tscn::PackedScene::4273518464432574339::1688861654::0::1::::<><>::res://party.gd<>uid://c16yn6farik7x<>uid://w7iuoxqntqu4<>uid://46lwm1amrp2s
+party.tscn::PackedScene::4273518464432574339::1688864011::0::1::::<><>::res://party.gd<>uid://c16yn6farik7x<>uid://w7iuoxqntqu4<>uid://46lwm1amrp2s
 README.md::TextFile::-1::1688776051::0::1::::<><>::
-dungeon.tscn::PackedScene::331046739200945495::1688861654::0::1::::<><>::res://dungeon.gd<>uid://dld3l004t72k<>uid://x26np5e43ra7<>uid://b15ehv2gu1d4n<>uid://gkq3h6uc7inm<>uid://cmueeposqq4hp<>uid://lfog0l0a6pg2
+dungeon.tscn::PackedScene::331046739200945495::1688864011::0::1::::<><>::res://dungeon.gd<>uid://dld3l004t72k<>uid://x26np5e43ra7<>uid://b15ehv2gu1d4n<>uid://gkq3h6uc7inm<>uid://cmueeposqq4hp<>uid://lfog0l0a6pg2<>uid://dtb875ybtf1cc<>uid://we6kumdgco1i<>uid://cln6nupo4fw8j<>uid://c2rah10ffc147<>uid://dgmxwcdn4jcsh
 dungeon.gd::GDScript::-1::1688860588::0::1::::<>Node2D<>::
 globals.gd::GDScript::-1::1688852039::0::1::::<>Node<>::
+old_room.tscn::PackedScene::3917507891629988490::1688864187::0::1::::<><>::res://room.gd
 room.gd::GDScript::-1::1688861603::0::1::::<>TextureRect<>::
-room.tscn::PackedScene::233507456968777192::1688861654::0::1::::<><>::res://room.gd<>uid://bcoib50l8fwqx
-::res://art/::1688861676
+room.tscn::PackedScene::233507456968777192::1688864011::0::1::::<><>::res://room.gd
+::res://art/::1688861692
 big boss room.png::CompressedTexture2D::7606603534566635627::1688852030::1688860588::1::::<><>::
 big intersecting.png::CompressedTexture2D::6703048472450609570::1688852030::1688860588::1::::<><>::
 boss room.png::CompressedTexture2D::2556188796126765287::1688852030::1688860588::1::::<><>::
@@ -42,16 +43,16 @@ turn_icon_DM.png::CompressedTexture2D::7388140557340917612::1688852030::16888605
 turn_icon_player.png::CompressedTexture2D::2080662417249583153::1688852030::1688860588::1::::<><>::
 turn_player.png::CompressedTexture2D::4847069448951115412::1688852030::1688860588::1::::<><>::
 worker_manager.png::CompressedTexture2D::2874556914947566961::1688860580::1688861692::1::::<><>::
-::res://entities/::1688861654
+::res://entities/::1688864011
 cleric.gd::GDScript::-1::1688860588::0::1::::<>AnimatedSprite2D<>::
-cleric.tscn::PackedScene::2100180020726970028::1688861654::0::1::::<><>::uid://c16yn6farik7x<>res://entities/cleric.gd<>uid://cun1vgqd1mdu2
+cleric.tscn::PackedScene::2100180020726970028::1688864011::0::1::::<><>::uid://c16yn6farik7x<>res://entities/cleric.gd<>uid://cun1vgqd1mdu2
 man_at_arms.gd::GDScript::-1::1688860588::0::1::::<>AnimatedSprite2D<>::
-man_at_arms.tscn::PackedScene::6663229071468977295::1688861654::0::1::::<><>::uid://w7iuoxqntqu4<>uid://bbu83f3erv7bl<>res://entities/man_at_arms.gd
-paladin.gd::GDScript::-1::1688860588::0::1::::<>AnimatedSprite2D<>::
-paladin.tscn::PackedScene::1610736871589363629::1688861654::0::1::::<><>::uid://chxirfsjluffy<>res://entities/paladin.gd
+man_at_arms.tscn::PackedScene::6663229071468977295::1688864011::0::1::::<><>::uid://w7iuoxqntqu4<>uid://bbu83f3erv7bl<>res://entities/man_at_arms.gd
+paladin.gd::GDScript::-1::1688864010::0::1::::<>AnimatedSprite2D<>::
+paladin.tscn::PackedScene::1610736871589363629::1688864011::0::1::::<><>::uid://chxirfsjluffy<>res://entities/paladin.gd
 player.gd::GDScript::-1::1688852039::0::1::::<>AnimatedSprite2D<>::
-player.tscn::PackedScene::5656645867587867313::1688861654::0::1::::<><>::uid://r1qe2mo1711y<>res://entities/player.gd
-goblin.tscn::PackedScene::1671987879546883092::1688861654::0::1::::<><>::res://entities/goblin.gd<>uid://7dig3xrbd5ld
+player.tscn::PackedScene::5656645867587867313::1688864011::0::1::::<><>::uid://r1qe2mo1711y<>res://entities/player.gd
+goblin.tscn::PackedScene::1671987879546883092::1688864011::0::1::::<><>::res://entities/goblin.gd<>uid://7dig3xrbd5ld
 goblin.gd::GDScript::-1::1688860588::0::1::::<>Area2D<>::
-ogre.tscn::PackedScene::442798729947429062::1688861654::0::1::::<><>::res://entities/goblin.gd<>uid://cp1tf70knb78d
-slasher.tscn::PackedScene::783261252664538747::1688861654::0::1::::<><>::res://entities/goblin.gd<>uid://dlcdrwgcawip5
+ogre.tscn::PackedScene::442798729947429062::1688864011::0::1::::<><>::res://entities/goblin.gd<>uid://cp1tf70knb78d
+slasher.tscn::PackedScene::783261252664538747::1688864011::0::1::::<><>::res://entities/goblin.gd<>uid://dlcdrwgcawip5

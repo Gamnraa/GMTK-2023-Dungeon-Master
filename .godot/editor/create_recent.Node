@@ -1,9 +1,10 @@
-TextureRect
 CollisionShape2D
-AnimatedSprite2D
 Area2D
+Camera2D
+Button
+TextureRect
+AnimatedSprite2D
 Timer
 Node2D
 Marker2D
-Button
 ColorRect

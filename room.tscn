@@ -2,37 +2,14 @@
 
 [ext_resource type="Script" path="res://room.gd" id="1_ltq06"]
 
-[node name="room" type="Node2D"]
+[node name="room" type="Button"]
 process_priority = -1
-position = Vector2(150, 120)
+offset_left = 150.0
+offset_top = 120.0
+offset_right = 350.0
+offset_bottom = 320.0
 scale = Vector2(0.85, 0.85)
 script = ExtResource("1_ltq06")
-
-[node name="wall" type="ColorRect" parent="."]
-visible = false
-offset_right = 200.0
-offset_bottom = 200.0
-mouse_filter = 2
-
-[node name="floor" type="ColorRect" parent="wall"]
-visible = false
-layout_mode = 0
-offset_left = 2.39999
-offset_top = 2.4
-offset_right = 197.4
-offset_bottom = 197.4
-mouse_filter = 2
-color = Color(0.419608, 0.419608, 0.419608, 1)
-
-[node name="button" type="Button" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 1.0
-offset_right = 199.0
-offset_bottom = 200.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="HeroPosition" type="Marker2D" parent="."]
 position = Vector2(30, 100)
@@ -40,4 +17,4 @@ position = Vector2(30, 100)
 [node name="MonsterPosition" type="Marker2D" parent="."]
 position = Vector2(120, 100)
 
-[connection signal="pressed" from="button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="." to="." method="_on_button_pressed"]

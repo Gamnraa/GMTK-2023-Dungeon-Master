@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://eymj55j4st1x"]
+[gd_scene load_steps=14 format=3 uid="uid://eymj55j4st1x"]
 
 [ext_resource type="Script" path="res://dungeon.gd" id="1_4htoj"]
 [ext_resource type="PackedScene" uid="uid://dld3l004t72k" path="res://room.tscn" id="1_sqd64"]
@@ -12,9 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://cln6nupo4fw8j" path="res://art/hallway_double_single.png" id="10_r361j"]
 [ext_resource type="Texture2D" uid="uid://c2rah10ffc147" path="res://art/big intersecting.png" id="11_mc5vg"]
 [ext_resource type="Texture2D" uid="uid://dgmxwcdn4jcsh" path="res://art/big boss room.png" id="12_sfmm3"]
+[ext_resource type="PackedScene" uid="uid://bmfmy4mpps80b" path="res://camera_2d.tscn" id="13_clalo"]
 
 [node name="dungeon" type="Node2D"]
-position = Vector2(46, 32)
+position = Vector2(46, 0)
 script = ExtResource("1_4htoj")
 goblin_spawner = ExtResource("2_0b16p")
 ogre_spawner = ExtResource("3_b15vj")
@@ -26,6 +27,7 @@ offset_top = 179.25
 offset_right = 123.0
 offset_bottom = 393.25
 texture = ExtResource("8_xisdl")
+metadata/_edit_use_anchors_ = true
 
 [node name="HallwaySingleDouble2" type="TextureRect" parent="."]
 offset_left = 830.0
@@ -33,6 +35,7 @@ offset_top = 142.25
 offset_right = 958.0
 offset_bottom = 430.25
 texture = ExtResource("9_im3jh")
+metadata/_edit_use_anchors_ = true
 
 [node name="HallwaySingleDouble" type="TextureRect" parent="."]
 offset_left = 123.0
@@ -40,6 +43,7 @@ offset_top = 142.25
 offset_right = 251.0
 offset_bottom = 430.25
 texture = ExtResource("9_im3jh")
+metadata/_edit_use_anchors_ = true
 
 [node name="HallwayDoubleSingle" type="TextureRect" parent="."]
 offset_left = 524.0
@@ -47,6 +51,7 @@ offset_top = 142.25
 offset_right = 652.0
 offset_bottom = 430.25
 texture = ExtResource("10_r361j")
+metadata/_edit_use_anchors_ = true
 
 [node name="BigIntersecting" type="Sprite2D" parent="."]
 position = Vector2(389, 190.25)
@@ -89,6 +94,7 @@ offset_top = 142.25
 offset_right = 1640.0
 offset_bottom = 430.25
 texture = ExtResource("10_r361j")
+metadata/_edit_use_anchors_ = true
 
 [node name="BigBossRoom" type="Sprite2D" parent="."]
 position = Vector2(1760, 286.25)
@@ -96,31 +102,67 @@ scale = Vector2(1.25521, 1.34375)
 texture = ExtResource("12_sfmm3")
 
 [node name="room" parent="." instance=ExtResource("1_sqd64")]
-position = Vector2(-44, 199)
+offset_left = -21.0
+offset_top = 199.0
+offset_right = 124.0
+offset_bottom = 405.0
+metadata/_edit_use_anchors_ = true
 
 [node name="room1_1" parent="." instance=ExtResource("1_sqd64")]
-position = Vector2(298, 106)
+offset_left = 274.0
+offset_top = 106.0
+offset_right = 544.0
+offset_bottom = 306.0
+metadata/_edit_use_anchors_ = true
 
 [node name="room1_2" parent="." instance=ExtResource("1_sqd64")]
-position = Vector2(295, 298)
+offset_left = 285.0
+offset_top = 297.0
+offset_right = 531.0
+offset_bottom = 498.0
+metadata/_edit_use_anchors_ = true
 
 [node name="room2" parent="." instance=ExtResource("1_sqd64")]
-position = Vector2(652, 201)
+offset_left = 675.0
+offset_top = 201.0
+offset_right = 834.0
+offset_bottom = 401.0
+metadata/_edit_use_anchors_ = true
 
 [node name="room2_2" parent="." instance=ExtResource("1_sqd64")]
-position = Vector2(1009, 297)
+offset_left = 990.0
+offset_top = 297.0
+offset_right = 1237.0
+offset_bottom = 497.0
+metadata/_edit_use_anchors_ = true
 
 [node name="room2_1" parent="." instance=ExtResource("1_sqd64")]
-position = Vector2(1012, 105)
+offset_left = 993.0
+offset_top = 105.0
+offset_right = 1238.0
+offset_bottom = 305.0
+metadata/_edit_use_anchors_ = true
 
 [node name="room2_1_1" parent="." instance=ExtResource("1_sqd64")]
-position = Vector2(1288, 101)
+offset_left = 1269.0
+offset_top = 106.0
+offset_right = 1516.0
+offset_bottom = 305.0
+metadata/_edit_use_anchors_ = true
 
 [node name="room2_2_1" parent="." instance=ExtResource("1_sqd64")]
-position = Vector2(1281, 300)
+offset_left = 1271.0
+offset_top = 295.0
+offset_right = 1517.0
+offset_bottom = 501.0
+metadata/_edit_use_anchors_ = true
 
 [node name="room3" parent="." instance=ExtResource("1_sqd64")]
-position = Vector2(1673, 201)
+offset_left = 1659.0
+offset_top = 201.0
+offset_right = 1897.0
+offset_bottom = 401.0
+metadata/_edit_use_anchors_ = true
 
 [node name="party" parent="." instance=ExtResource("2_xa2to")]
 position = Vector2(-4, 86)
@@ -131,6 +173,9 @@ position = Vector2(1421, 255)
 
 [node name="PartyTimer" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="Camera2D" parent="." instance=ExtResource("13_clalo")]
+position = Vector2(559, 360)
 
 [connection signal="next_turn" from="." to="." method="_on_next_turn"]
 [connection signal="send_to_room" from="room" to="." method="_on_room_send_to_room"]
