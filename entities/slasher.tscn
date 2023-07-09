@@ -23,6 +23,7 @@ script = ExtResource("1_6owyl")
 MAX_HEALTH = 120
 offense = 45
 defense = 7
+entity_name = "SLASHER"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1wob0")

@@ -17,6 +17,7 @@ func _ready():
 
 func start():
 	show()
+	$ButtonX.hide()
 	
 func enable_buy(button):
 	button.disabled = false
@@ -76,11 +77,12 @@ func on_moves_changed():
 	$MovesLabel.text = str(Global.TheDungeon.moves_left)
 	
 func on_receive_message(message):
+	print(message)
 	messages[2] = messages[1]
 	messages[1] = messages[0]
 	messages[0] = message
 	var i = 0
 	for text in messages:
-		message_labels[i].text = text
+		message_labels[i].text = messages[i]
 		i += 1
 	

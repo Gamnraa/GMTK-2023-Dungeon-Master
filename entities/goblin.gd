@@ -4,6 +4,7 @@ var health
 @export var MAX_HEALTH = 150
 @export var offense = 5
 @export var defense = 10
+@export var entity_name = "GOBLIN"
 
 signal dead
 signal action_attack(target)

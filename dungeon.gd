@@ -13,7 +13,7 @@ signal next_turn
 signal heroes_turn
 signal moves_changed
 signal gold_changed
-signal receieved_message(message)
+signal received_message(message)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.TheDungeon = self
@@ -71,6 +71,8 @@ func start():
 	$Player.start($room3)
 	print("player is active")
 	$HUD.on_player_turn_start()
+	$HUD.get_node("ButtonGoblin").pressed.connect(on_begin_purchase_goblin)
+	$HUD.get_node("ButtonX").pressed.connect(on_cancel_purchase)
 	
 
 func on_use_move(amount):
@@ -121,3 +123,28 @@ func get_rooms_open():
 			rooms.erase(room)
 			
 	return rooms
+
+func on_begin_purchase_goblin():
+	var rooms = get_rooms_open()
+	for room in rooms:
+		room.on_gain_focus()
+		room.send_to_room.connect(on_purchase_goblin)
+
+func on_cancel_purchase():
+	for r in get_tree().get_nodes_in_group("rooms"):
+		r.send_to_room.disconnect(on_purchase_goblin)
+		r.on_lose_focus()
+	
+	$HUD.get_node("ButtonX").hide()
+		
+func on_purchase_goblin(room):
+	$Player.gold -= $HUD.goblin_cost
+	gold_changed.emit()
+	
+	var mob = goblin_spawner.instantiate()
+	mob.move_to_room(room)
+	add_child(mob)
+	
+	for r in get_tree().get_nodes_in_group("rooms"):
+		r.on_lose_focus()
+	

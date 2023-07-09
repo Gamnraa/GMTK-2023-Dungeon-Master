@@ -182,7 +182,7 @@ position = Vector2(559, 360)
 [connection signal="heroes_turn" from="." to="HUD" method="on_player_turn_end"]
 [connection signal="moves_changed" from="." to="HUD" method="on_moves_changed"]
 [connection signal="next_turn" from="." to="HUD" method="on_player_turn_start"]
-[connection signal="receieved_message" from="." to="HUD" method="on_receive_message"]
+[connection signal="received_message" from="." to="HUD" method="on_receive_message"]
 [connection signal="send_to_room" from="room" to="." method="_on_room_send_to_room"]
 [connection signal="send_to_room" from="room1_1" to="." method="_on_room_send_to_room"]
 [connection signal="send_to_room" from="room1_2" to="." method="_on_room_send_to_room"]

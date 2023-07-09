@@ -49,6 +49,8 @@ func _on_action_attack(target):
 	target.health -= damage_out
 	target.attacked.emit()
 	_on_attacked()
+	var message = "PALADIN (" + str(damage_in) + " dmg) attacked " + target.entity_name + "(" + str(damage_out) + " dmg)!"
+	Global.TheDungeon.received_message.emit(message)
 
 
 func _on_attacked():

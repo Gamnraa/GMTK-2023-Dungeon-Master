@@ -20,6 +20,7 @@ size = Vector2(30, 31)
 [node name="ogre" type="Area2D"]
 script = ExtResource("1_7vslc")
 defense = 50
+entity_name = "OGRE"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wr1jq")
