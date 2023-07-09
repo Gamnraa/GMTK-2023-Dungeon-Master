@@ -1,12 +1,18 @@
 extends CanvasLayer
 
-var messages: Array
+var messages = ["", "", ""]
+var message_labels = [$Message1, $Message2, $Message3]
 var goblin_cost = 50
 var slasher_cost = 120
 var ogre_cost = 90
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#hide()
+	message_labels = [$Message1, $Message2, $Message3]
+	on_receive_message("")
 	start()
 
 func start():
@@ -65,4 +71,16 @@ func on_update_gold():
 			enable_buy($ButtonOgre)
 	
 	$Gold.text = str(amount)
+	
+func on_moves_changed():
+	$MovesLabel.text = str(Global.TheDungeon.moves_left)
+	
+func on_receive_message(message):
+	messages[2] = messages[1]
+	messages[1] = messages[0]
+	messages[0] = message
+	var i = 0
+	for text in messages:
+		message_labels[i].text = text
+		i += 1
 	

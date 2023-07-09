@@ -11,6 +11,9 @@ var selected_monster
 
 signal next_turn
 signal heroes_turn
+signal moves_changed
+signal gold_changed
+signal receieved_message(message)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.TheDungeon = self
@@ -72,6 +75,7 @@ func start():
 
 func on_use_move(amount):
 	moves_left -= amount
+	moves_changed.emit()
 	if moves_left <= 0:
 		_on_next_turn()
 
