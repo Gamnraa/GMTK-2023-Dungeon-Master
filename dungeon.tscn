@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://eymj55j4st1x"]
+[gd_scene load_steps=15 format=3 uid="uid://eymj55j4st1x"]
 
 [ext_resource type="Script" path="res://dungeon.gd" id="1_4htoj"]
 [ext_resource type="PackedScene" uid="uid://dld3l004t72k" path="res://room.tscn" id="1_sqd64"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cln6nupo4fw8j" path="res://art/hallway_double_single.png" id="10_r361j"]
 [ext_resource type="Texture2D" uid="uid://c2rah10ffc147" path="res://art/big intersecting.png" id="11_mc5vg"]
 [ext_resource type="Texture2D" uid="uid://dgmxwcdn4jcsh" path="res://art/big boss room.png" id="12_sfmm3"]
+[ext_resource type="PackedScene" uid="uid://0s2qccdsqawt" path="res://hud.tscn" id="13_24xdy"]
 [ext_resource type="PackedScene" uid="uid://bmfmy4mpps80b" path="res://camera_2d.tscn" id="13_clalo"]
 
 [node name="dungeon" type="Node2D"]
@@ -168,16 +169,18 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(-4, 86)
 
 [node name="Player" parent="." instance=ExtResource("3_e0vf8")]
-visible = false
-position = Vector2(1421, 255)
+position = Vector2(1835, 223)
 
 [node name="PartyTimer" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="HUD" parent="." instance=ExtResource("13_24xdy")]
+
 [node name="Camera2D" parent="." instance=ExtResource("13_clalo")]
 position = Vector2(559, 360)
 
-[connection signal="next_turn" from="." to="." method="_on_next_turn"]
+[connection signal="heroes_turn" from="." to="HUD" method="on_player_turn_end"]
+[connection signal="next_turn" from="." to="HUD" method="on_player_turn_start"]
 [connection signal="send_to_room" from="room" to="." method="_on_room_send_to_room"]
 [connection signal="send_to_room" from="room1_1" to="." method="_on_room_send_to_room"]
 [connection signal="send_to_room" from="room1_2" to="." method="_on_room_send_to_room"]

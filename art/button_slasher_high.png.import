@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddi4uip3lyj53"
-path="res://.godot/imported/turn_icon_DM.png-3d2e3a1c721536f072a65a02b8b17053.ctex"
+uid="uid://ck554lvadlesf"
+path="res://.godot/imported/button_slasher_high.png-4fc1be6d264b5b8ff64805952f7a26b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/turn_icon_DM.png"
-dest_files=["res://.godot/imported/turn_icon_DM.png-3d2e3a1c721536f072a65a02b8b17053.ctex"]
+source_file="res://art/button_slasher_high.png"
+dest_files=["res://.godot/imported/button_slasher_high.png-4fc1be6d264b5b8ff64805952f7a26b8.ctex"]
 
 [params]
 

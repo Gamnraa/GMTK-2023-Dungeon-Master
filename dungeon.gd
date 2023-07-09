@@ -13,6 +13,7 @@ signal next_turn
 signal heroes_turn
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.TheDungeon = self
 	start()
 	
 func start():
@@ -66,12 +67,13 @@ func start():
 	
 	$Player.start($room3)
 	print("player is active")
+	$HUD.on_player_turn_start()
 	
 
 func on_use_move(amount):
 	moves_left -= amount
 	if moves_left <= 0:
-		next_turn.emit()
+		_on_next_turn()
 
 	
 
@@ -90,10 +92,12 @@ func _on_next_turn():
 		$Player.is_turn = false
 		$PartyTimer.start()
 		moves_left = 3
+		heroes_turn.emit()
 	else:
 		$Player.is_turn = true
 		$PartyTimer.stop()
 		moves_left = 5
+		next_turn.emit()
 		
 	turn += 1
 	active_player = turn % 2
@@ -105,3 +109,11 @@ func _on_party_timer_timeout():
 
 func _on_party_perform_action(moves):
 	on_use_move(moves)
+	
+func get_rooms_open():
+	var rooms = get_tree().get_nodes_in_group("rooms")
+	for room in rooms:
+		if room.num_monsters == 3 or room.has_party:
+			rooms.erase(room)
+			
+	return rooms

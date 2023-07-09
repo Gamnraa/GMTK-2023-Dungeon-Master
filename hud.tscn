@@ -1,0 +1,156 @@
+[gd_scene load_steps=18 format=3 uid="uid://0s2qccdsqawt"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_g5gd0"]
+[ext_resource type="Texture2D" uid="uid://xeamh8elggur" path="res://art/title_gold.png" id="1_xhl3e"]
+[ext_resource type="Texture2D" uid="uid://b83o1i1l4oxt4" path="res://art/title_moves.png" id="2_yfafi"]
+[ext_resource type="Texture2D" uid="uid://baq7v6jbxibf" path="res://art/title_turn.png" id="4_817w1"]
+[ext_resource type="Texture2D" uid="uid://bsaotifp5i4c" path="res://art/button_goblin_high.png" id="5_2ru4m"]
+[ext_resource type="Texture2D" uid="uid://dftfgq10gw0wx" path="res://art/button_goblin_dark.png" id="6_esscs"]
+[ext_resource type="Texture2D" uid="uid://btxqa7hw67qyq" path="res://art/button_goblin.png" id="6_ltea7"]
+[ext_resource type="Texture2D" uid="uid://b3lq7n5ltbrxy" path="res://art/button_slasher.png" id="7_qawbx"]
+[ext_resource type="Texture2D" uid="uid://ck554lvadlesf" path="res://art/button_slasher_high.png" id="8_6mcwu"]
+[ext_resource type="Texture2D" uid="uid://bc6856yicy8pp" path="res://art/button_ogre.png" id="8_bmkgb"]
+[ext_resource type="Texture2D" uid="uid://b8w8uck8nrdbg" path="res://art/button_slasher_dark.png" id="9_0iiw7"]
+[ext_resource type="Texture2D" uid="uid://djltof1o6akbr" path="res://art/turn_blank.png" id="9_ojojx"]
+[ext_resource type="Texture2D" uid="uid://cbb7r4wqnslls" path="res://art/turn_player.png" id="10_lxbf2"]
+[ext_resource type="Texture2D" uid="uid://dncxx0ir8sftm" path="res://art/button_ogre_high.png" id="11_fywg5"]
+[ext_resource type="Texture2D" uid="uid://uwtcdt64e6pa" path="res://art/turn_DM.png" id="11_hh1jk"]
+[ext_resource type="Texture2D" uid="uid://d1sm6rxtb6nro" path="res://art/button_ogre_dark.png" id="12_cfkjb"]
+[ext_resource type="FontFile" uid="uid://ix3744661s47" path="res://art/DebugMenu.ttf" id="16_i11dh"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_g5gd0")
+
+[node name="BG" type="ColorRect" parent="."]
+offset_left = 16.0
+offset_top = 558.0
+offset_right = 414.0
+offset_bottom = 711.0
+color = Color(0.623529, 0.623529, 0.623529, 1)
+
+[node name="TitleGold" type="Sprite2D" parent="."]
+position = Vector2(129, 568)
+texture = ExtResource("1_xhl3e")
+
+[node name="TitleMoves" type="Sprite2D" parent="."]
+position = Vector2(53, 644)
+texture = ExtResource("2_yfafi")
+
+[node name="TitleTurn" type="Sprite2D" parent="."]
+position = Vector2(130, 644)
+texture = ExtResource("4_817w1")
+
+[node name="ButtonGoblin" type="TextureButton" parent="."]
+offset_left = 20.0
+offset_top = 583.0
+offset_right = 84.0
+offset_bottom = 599.0
+texture_normal = ExtResource("6_ltea7")
+texture_hover = ExtResource("5_2ru4m")
+texture_disabled = ExtResource("6_esscs")
+
+[node name="ButtonSlasher" type="TextureButton" parent="."]
+offset_left = 20.0
+offset_top = 615.0
+offset_right = 84.0
+offset_bottom = 631.0
+texture_normal = ExtResource("7_qawbx")
+texture_hover = ExtResource("8_6mcwu")
+texture_disabled = ExtResource("9_0iiw7")
+
+[node name="ButtonOgre" type="TextureButton" parent="."]
+offset_left = 20.0
+offset_top = 599.0
+offset_right = 84.0
+offset_bottom = 615.0
+texture_normal = ExtResource("8_bmkgb")
+texture_hover = ExtResource("11_fywg5")
+texture_disabled = ExtResource("12_cfkjb")
+
+[node name="TurnBlank" type="Sprite2D" parent="."]
+position = Vector2(129, 677)
+texture = ExtResource("9_ojojx")
+
+[node name="TurnHeroes" type="Sprite2D" parent="."]
+position = Vector2(129, 677)
+texture = ExtResource("10_lxbf2")
+
+[node name="TurnMonsters" type="Sprite2D" parent="."]
+position = Vector2(129, 677)
+texture = ExtResource("11_hh1jk")
+
+[node name="Message1" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 179.0
+offset_top = -57.0
+offset_right = 390.0
+offset_bottom = -18.0
+grow_vertical = 0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_i11dh")
+theme_override_font_sizes/font_size = 16
+text = "Sample"
+horizontal_alignment = 1
+
+[node name="Message2" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 179.0
+offset_top = -151.0
+offset_right = 390.0
+offset_bottom = -112.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_i11dh")
+text = "Sample"
+horizontal_alignment = 1
+
+[node name="Message3" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 179.0
+offset_top = -105.0
+offset_right = 390.0
+offset_bottom = -66.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_i11dh")
+text = "Sample"
+horizontal_alignment = 1
+
+[node name="Gold" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 99.0
+offset_top = -138.0
+offset_right = 163.0
+offset_bottom = -97.0
+grow_vertical = 0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_i11dh")
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+
+[node name="MovesLabel" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 31.0
+offset_top = -62.0
+offset_right = 79.0
+offset_bottom = -21.0
+grow_vertical = 0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_i11dh")
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 1

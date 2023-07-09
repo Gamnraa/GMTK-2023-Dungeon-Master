@@ -1,10 +1,13 @@
+Label
+TextureButton
+TextureRect
+ColorRect
+CanvasLayer
 CollisionShape2D
 Area2D
 Camera2D
 Button
-TextureRect
 AnimatedSprite2D
 Timer
 Node2D
 Marker2D
-ColorRect
