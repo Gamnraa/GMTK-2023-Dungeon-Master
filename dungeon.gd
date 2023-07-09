@@ -6,7 +6,7 @@ extends Node2D
 
 var turn = 0
 var active_player = turn % 2
-var moves_left = 5
+var moves_left = 3
 var selected_monster
 
 signal next_turn
@@ -33,6 +33,7 @@ func start():
 	$room2.prev_rooms.append($room1_2)
 	$room2.next_rooms.append($room2_1)
 	$room2.next_rooms.append($room2_2)
+	$room2.treasure = $Treasure_room2
 	
 	$room2_1.prev_rooms.append($room2)
 	$room2_1.next_rooms.append($room2_1_1)
@@ -42,6 +43,7 @@ func start():
 	
 	$room2_1_1.prev_rooms.append($room2_1)
 	$room2_1_1.next_rooms.append($room3)
+	$room2_1_1.treasure = $Treasure_room2_1_1
 	
 	$room2_2_1.prev_rooms.append($room2_2)
 	$room2_2_1.next_rooms.append($room3)
@@ -104,8 +106,24 @@ func _on_next_turn():
 	else:
 		$Player.is_turn = true
 		$PartyTimer.stop()
-		moves_left = 5
+		moves_left = 3
 		next_turn.emit()
+		var gold_yield = 0
+		for room in get_tree().get_nodes_in_group("rooms"):
+			if room.treasure:
+				print("treasure")
+				if room.has_party and room.num_monsters < 1:
+					room.treasure.queue_free()
+					received_message.emit("HEROES have cleared a room of treasure!")
+				elif room.has_party and room.num_monsters > 0:
+					gold_yield += 25
+				elif not room.has_party:
+					gold_yield += 50 
+			if not room.has_party:
+				gold_yield += 10 * room.num_monsters
+		
+		$Player.gold += gold_yield
+		gold_changed.emit()
 		
 	turn += 1
 	active_player = turn % 2
@@ -217,5 +235,7 @@ func on_cancel_purchase():
 	
 	$HUD.get_node("ButtonX").hide()
 	$HUD.get_node("CancelLabel").hide()
+	
+	get_tree().call_group("monsters", "on_lose_focus")
 		
 	

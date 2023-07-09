@@ -39,23 +39,32 @@ func move_to_room(room):
 	
 	
 func _input(event):
-	if can_move() and event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if mouse_over:
 			on_gain_focus()
+		elif Global.TheParty.selectable and selected:
+			Global.TheParty.on_attacked(self)
 		
 func on_gain_focus():
 	selected = true
-	if curr_room.next_rooms:
-		for room in curr_room.next_rooms:
-			if room.num_monsters < 3:
-				room.on_gain_focus()
-				room.send_to_room.connect(move_to_room)
-			
-	if curr_room.prev_rooms:
-		for room in curr_room.prev_rooms:
-			if room.num_monsters < 3:
-				room.on_gain_focus()
-				room.send_to_room.connect(move_to_room)
+	if can_move():
+		if curr_room.next_rooms:
+			for room in curr_room.next_rooms:
+				if room.num_monsters < 3:
+					room.on_gain_focus()
+					room.send_to_room.connect(move_to_room)
+				
+		if curr_room.prev_rooms:
+			for room in curr_room.prev_rooms:
+				if room.num_monsters < 3:
+					room.on_gain_focus()
+					room.send_to_room.connect(move_to_room)
+	elif curr_room.has_party:
+		Global.TheParty.active = true
+	
+	Global.TheDungeon.get_node("HUD").get_node("ButtonX").show()
+	Global.TheDungeon.get_node("HUD").get_node("CancelLabel").show()
+	
 		
 func on_lose_focus():
 	selected = false
@@ -68,6 +77,9 @@ func on_lose_focus():
 		for room in curr_room.prev_rooms:
 			room.on_lose_focus()
 			room.send_to_room.disconnect(move_to_room)
+			
+	Global.TheDungeon.get_node("HUD").get_node("ButtonX").hide()
+	Global.TheDungeon.get_node("HUD").get_node("CancelLabel").hide()
 	
 func _ready():
 	show()
@@ -106,6 +118,8 @@ func _on_action_attack(target):
 	_on_attacked()
 	var message = entity_name + " (" + str(damage_in) + " dmg) attacked " + target.entity_name + "(" + str(damage_out) + " dmg)!"
 	Global.TheDungeon.received_message.emit(message)
+	
+	on_lose_focus()
 
 
 func _on_attacked():

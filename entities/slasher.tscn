@@ -17,7 +17,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hx0sm"]
 size = Vector2(28, 31)
 
-[node name="slasher" type="Area2D"]
+[node name="slasher" type="Area2D" groups=["monsters"]]
 disable_mode = 2
 script = ExtResource("1_6owyl")
 MAX_HEALTH = 120

@@ -6,7 +6,7 @@ var next_rooms: Array
 var prev_rooms: Array
 var has_party
 var has_trap
-var has_treasure
+var treasure
 
 signal send_to_room(room)
 

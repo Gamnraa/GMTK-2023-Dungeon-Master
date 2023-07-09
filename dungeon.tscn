@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://eymj55j4st1x"]
+[gd_scene load_steps=16 format=3 uid="uid://eymj55j4st1x"]
 
 [ext_resource type="Script" path="res://dungeon.gd" id="1_4htoj"]
 [ext_resource type="PackedScene" uid="uid://dld3l004t72k" path="res://room.tscn" id="1_sqd64"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dtb875ybtf1cc" path="res://art/Intersecting room.png" id="8_xisdl"]
 [ext_resource type="Texture2D" uid="uid://we6kumdgco1i" path="res://art/hallway_single_double.png" id="9_im3jh"]
 [ext_resource type="Texture2D" uid="uid://cln6nupo4fw8j" path="res://art/hallway_double_single.png" id="10_r361j"]
+[ext_resource type="PackedScene" uid="uid://dbifcttwdtl5" path="res://treasure.tscn" id="11_ig0ev"]
 [ext_resource type="Texture2D" uid="uid://c2rah10ffc147" path="res://art/big intersecting.png" id="11_mc5vg"]
 [ext_resource type="Texture2D" uid="uid://dgmxwcdn4jcsh" path="res://art/big boss room.png" id="12_sfmm3"]
 [ext_resource type="PackedScene" uid="uid://0s2qccdsqawt" path="res://hud.tscn" id="13_24xdy"]
@@ -164,6 +165,12 @@ offset_top = 201.0
 offset_right = 1897.0
 offset_bottom = 401.0
 metadata/_edit_use_anchors_ = true
+
+[node name="Treasure_room2" parent="." instance=ExtResource("11_ig0ev")]
+position = Vector2(725, 282)
+
+[node name="Treasure_room2_1_1" parent="." instance=ExtResource("11_ig0ev")]
+position = Vector2(1443, 186)
 
 [node name="party" parent="." instance=ExtResource("2_xa2to")]
 position = Vector2(-4, 86)

@@ -17,7 +17,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1hh0n"]
 size = Vector2(23, 29)
 
-[node name="Goblin" type="Area2D"]
+[node name="Goblin" type="Area2D" groups=["monsters"]]
 disable_mode = 2
 collision_layer = 4
 collision_mask = 0
