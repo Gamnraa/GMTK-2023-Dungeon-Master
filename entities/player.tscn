@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://cmueeposqq4hp"]
 
-[ext_resource type="Texture2D" uid="uid://r1qe2mo1711y" path="res://icon.svg" id="1_t1gnt"]
+[ext_resource type="Texture2D" uid="uid://bg7psdp5hbasv" path="res://art/worker_manager.png" id="1_5n55p"]
 [ext_resource type="Script" path="res://entities/player.gd" id="2_rowfg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5hbln"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_t1gnt")
+"texture": ExtResource("1_5n55p")
 }],
 "loop": true,
 "name": &"idle",
@@ -19,3 +19,5 @@ position = Vector2(553, 333)
 sprite_frames = SubResource("SpriteFrames_5hbln")
 animation = &"idle"
 script = ExtResource("2_rowfg")
+
+[connection signal="attacked" from="." to="." method="_on_attacked"]

@@ -1,11 +1,14 @@
-extends Node2D
+extends Area2D
 
 var alive_members
 var moves_left = 0
 var in_combat
 var curr_room
+var active = false
+var selectable = false
 
 signal perform_action(moves)
+signal defeated
 
 func move_to_room(room):
 	if curr_room:
@@ -16,10 +19,14 @@ func move_to_room(room):
 	var offset_x = room.get_node("HeroPosition").position.x
 	var offset_y = room.get_node("HeroPosition").position.y
 	position = Vector2(room.position.x + offset_x, room.position.y + offset_y)
+	if room.has_treasure and room.has_party and room.num_monsters < 1:
+		room.has_treasure = false
+		room.treasure.queue_free()
+		Global.TheDungeon.received_message.emit("HEROES have cleared a room of treasure!")
 
 func heal_or_revive():
 	print("heal_or_revive")
-	if moves_left >= 2 and alive_members.size() < get_children().size():
+	if moves_left >= 2 and alive_members.size() < get_children().size() - 1:
 		if $cleric.is_dead:
 			$cleric.action_revive.emit()
 			perform_action.emit(2)
@@ -49,7 +56,7 @@ func get_actions():
 	var num_members_alive = alive_members.size()
 		
 	in_combat = curr_room.num_monsters > 0
-	var revive_weight = get_children().size() - num_members_alive * 20
+	var revive_weight = get_children().size() - 1 - num_members_alive * 20
 	#we'll code this logic later. Most of this will likely change
 	print("perform action")
 	var heal_weight = 0
@@ -61,7 +68,7 @@ func get_actions():
 		
 		var wants_to_move = heal_weight < randi() % 31 + 50
 		if wants_to_move:
-			var destination = randi() % 1
+			var destination = randi() % curr_room.next_rooms.size()
 			move_to_room(curr_room.next_rooms[destination])
 			perform_action.emit(1)
 			moves_left -= 1
@@ -81,14 +88,11 @@ func get_actions():
 			
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	start()
+	Global.TheParty = self
 	
 func start():
-	alive_members = []
-	#This is fine so long the only children of this node are our chars
-	for child in get_children():
-		child.start()
-		alive_members.append(child)
+	alive_members = [$man_at_arms, $paladin, $cleric]
+	for hero in alive_members: hero.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -98,11 +102,29 @@ func _process(delta):
 func _on_man_at_arms_dead():
 	$man_at_arms.is_dead = true
 	alive_members.erase($man_at_arms)
+	if alive_members.size() < 1: defeated.emit()
 
 func _on_paladin_dead():
 	$paladin.is_dead = true
 	alive_members.erase($paladin)
+	if alive_members.size() < 1: defeated.emit()
 
 func _on_cleric_dead():
 	$cleric.is_dead = true
 	alive_members.erase($cleric)
+	if alive_members.size() < 1: defeated.emit()
+
+
+func _on_mouse_entered():
+	if active: selectable = true
+
+
+func _on_mouse_exited():
+	selectable = false
+	
+
+func on_attacked(attacker):
+	var target = randi() % alive_members.size()
+	attacker.action_attack.emit(alive_members[target])
+	active = false
+	perform_action.emit(1)

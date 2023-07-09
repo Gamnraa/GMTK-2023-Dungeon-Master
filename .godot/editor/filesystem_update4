@@ -17,3 +17,8 @@ res://entities/goblin.gd
 res://globals.gd
 res://entities/ogre.tscn
 res://entities/slasher.tscn
+res://camera_2d.tscn
+res://camera_2d.gd
+res://hud.tscn
+res://hud.gd
+res://treasure.tscn

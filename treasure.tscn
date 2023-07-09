@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbifcttwdtl5"]
+
+[ext_resource type="Texture2D" uid="uid://cqp0ay4tydoid" path="res://art/chest.png" id="1_owh3t"]
+
+[node name="Treasure" type="Sprite2D"]
+texture = ExtResource("1_owh3t")

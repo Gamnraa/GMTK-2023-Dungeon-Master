@@ -1,4 +1,4 @@
-extends Node2D
+extends Button
 
 var num_monsters = 0
 var monsters: Array
@@ -6,25 +6,31 @@ var next_rooms: Array
 var prev_rooms: Array
 var has_party
 var has_trap
+var treasure
 var has_treasure
 
 signal send_to_room(room)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	start()
+	pass
 
 func start():
-	$button.disabled = true
-	$button.mouse_filter = 2
+	self.disabled = true
+	self.mouse_filter = 2
+	monsters = []
+	num_monsters = 0
+	has_party = false
+	has_trap = false
+	has_treasure = false
 	
 func on_gain_focus():
-	$button.disabled = false
-	$button.mouse_filter = 0
+	self.disabled = false
+	self.mouse_filter = 0
 	
 func on_lose_focus():
-	$button.disabled = true
-	$button.mouse_filter = 2
+	self.disabled = true
+	self.mouse_filter = 2
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

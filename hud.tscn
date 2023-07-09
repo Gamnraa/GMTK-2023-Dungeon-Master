@@ -1,0 +1,268 @@
+[gd_scene load_steps=25 format=3 uid="uid://0s2qccdsqawt"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_g5gd0"]
+[ext_resource type="Texture2D" uid="uid://xeamh8elggur" path="res://art/title_gold.png" id="1_xhl3e"]
+[ext_resource type="Texture2D" uid="uid://b83o1i1l4oxt4" path="res://art/title_moves.png" id="2_yfafi"]
+[ext_resource type="Texture2D" uid="uid://baq7v6jbxibf" path="res://art/title_turn.png" id="4_817w1"]
+[ext_resource type="Texture2D" uid="uid://bsaotifp5i4c" path="res://art/button_goblin_high.png" id="5_2ru4m"]
+[ext_resource type="Texture2D" uid="uid://dftfgq10gw0wx" path="res://art/button_goblin_dark.png" id="6_esscs"]
+[ext_resource type="Texture2D" uid="uid://btxqa7hw67qyq" path="res://art/button_goblin.png" id="6_ltea7"]
+[ext_resource type="Texture2D" uid="uid://bu5vuec8rt1qu" path="res://art/title_monsters.png" id="6_r62ac"]
+[ext_resource type="Texture2D" uid="uid://b3lq7n5ltbrxy" path="res://art/button_slasher.png" id="7_qawbx"]
+[ext_resource type="Texture2D" uid="uid://72ij0grlj67c" path="res://art/button_goblin_push.png" id="8_1lclq"]
+[ext_resource type="Texture2D" uid="uid://ck554lvadlesf" path="res://art/button_slasher_high.png" id="8_6mcwu"]
+[ext_resource type="Texture2D" uid="uid://bc6856yicy8pp" path="res://art/button_ogre.png" id="8_bmkgb"]
+[ext_resource type="Texture2D" uid="uid://b8w8uck8nrdbg" path="res://art/button_slasher_dark.png" id="9_0iiw7"]
+[ext_resource type="Texture2D" uid="uid://djltof1o6akbr" path="res://art/turn_blank.png" id="9_ojojx"]
+[ext_resource type="Texture2D" uid="uid://cbb7r4wqnslls" path="res://art/turn_player.png" id="10_lxbf2"]
+[ext_resource type="Texture2D" uid="uid://dncxx0ir8sftm" path="res://art/button_ogre_high.png" id="11_fywg5"]
+[ext_resource type="Texture2D" uid="uid://uwtcdt64e6pa" path="res://art/turn_DM.png" id="11_hh1jk"]
+[ext_resource type="Texture2D" uid="uid://c152e4m7iysf1" path="res://art/button_slasher_push.png" id="12_5jnxh"]
+[ext_resource type="Texture2D" uid="uid://d1sm6rxtb6nro" path="res://art/button_ogre_dark.png" id="12_cfkjb"]
+[ext_resource type="FontFile" uid="uid://ix3744661s47" path="res://art/DebugMenu.ttf" id="16_i11dh"]
+[ext_resource type="Texture2D" uid="uid://c6vjolegxv2ml" path="res://art/button_ogre_push.png" id="16_pxxoh"]
+[ext_resource type="Texture2D" uid="uid://c06yiqosy03m" path="res://art/button_x.png" id="18_p06o3"]
+[ext_resource type="Texture2D" uid="uid://c2rmkkrsrg3ot" path="res://art/button_x_high.png" id="19_eic7k"]
+[ext_resource type="Texture2D" uid="uid://534umintri8q" path="res://art/button_x_press.png" id="23_ie6r5"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_g5gd0")
+
+[node name="BG" type="ColorRect" parent="."]
+offset_left = 16.0
+offset_top = 558.0
+offset_right = 649.0
+offset_bottom = 711.0
+color = Color(0.623529, 0.623529, 0.623529, 1)
+
+[node name="TurnBlank3" type="Sprite2D" parent="."]
+position = Vector2(160, 597)
+scale = Vector2(1.9375, 1)
+texture = ExtResource("9_ojojx")
+
+[node name="TurnBlank2" type="Sprite2D" parent="."]
+position = Vector2(82, 678)
+texture = ExtResource("9_ojojx")
+
+[node name="TitleGold" type="Sprite2D" parent="."]
+position = Vector2(159, 568)
+texture = ExtResource("1_xhl3e")
+
+[node name="TitleMoves" type="Sprite2D" parent="."]
+position = Vector2(83, 644)
+texture = ExtResource("2_yfafi")
+
+[node name="TitleTurn" type="Sprite2D" parent="."]
+position = Vector2(160, 644)
+texture = ExtResource("4_817w1")
+
+[node name="TitleMonsters" type="Sprite2D" parent="."]
+position = Vector2(81, 568)
+texture = ExtResource("6_r62ac")
+
+[node name="ButtonGoblin" type="TextureButton" parent="."]
+offset_left = 50.0
+offset_top = 581.0
+offset_right = 114.0
+offset_bottom = 597.0
+texture_normal = ExtResource("6_ltea7")
+texture_pressed = ExtResource("8_1lclq")
+texture_hover = ExtResource("5_2ru4m")
+texture_disabled = ExtResource("6_esscs")
+
+[node name="ButtonSlasher" type="TextureButton" parent="."]
+offset_left = 50.0
+offset_top = 613.0
+offset_right = 114.0
+offset_bottom = 629.0
+texture_normal = ExtResource("7_qawbx")
+texture_pressed = ExtResource("12_5jnxh")
+texture_hover = ExtResource("8_6mcwu")
+texture_disabled = ExtResource("9_0iiw7")
+
+[node name="ButtonOgre" type="TextureButton" parent="."]
+offset_left = 50.0
+offset_top = 597.0
+offset_right = 114.0
+offset_bottom = 613.0
+texture_normal = ExtResource("8_bmkgb")
+texture_pressed = ExtResource("16_pxxoh")
+texture_hover = ExtResource("11_fywg5")
+texture_disabled = ExtResource("12_cfkjb")
+
+[node name="TurnBlank" type="Sprite2D" parent="."]
+position = Vector2(159, 677)
+texture = ExtResource("9_ojojx")
+
+[node name="TurnHeroes" type="Sprite2D" parent="."]
+position = Vector2(159, 677)
+texture = ExtResource("10_lxbf2")
+
+[node name="TurnMonsters" type="Sprite2D" parent="."]
+position = Vector2(159, 677)
+texture = ExtResource("11_hh1jk")
+
+[node name="Message1" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 206.0
+offset_top = -57.0
+offset_right = 417.0
+offset_bottom = -18.0
+grow_vertical = 0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_i11dh")
+theme_override_font_sizes/font_size = 16
+text = "Sample"
+horizontal_alignment = 1
+
+[node name="Message3" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 206.0
+offset_top = -151.0
+offset_right = 417.0
+offset_bottom = -112.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_i11dh")
+text = "Sample"
+horizontal_alignment = 1
+
+[node name="Message2" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 206.0
+offset_top = -105.0
+offset_right = 417.0
+offset_bottom = -66.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_i11dh")
+text = "Sample"
+horizontal_alignment = 1
+
+[node name="Gold" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 129.0
+offset_top = -136.0
+offset_right = 193.0
+offset_bottom = -95.0
+grow_vertical = 0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_i11dh")
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+
+[node name="MovesLabel" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 61.0
+offset_top = -60.0
+offset_right = 109.0
+offset_bottom = -19.0
+grow_vertical = 0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_i11dh")
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 1
+
+[node name="ButtonX" type="TextureButton" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -51.0
+offset_top = -48.0
+offset_right = -13.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("18_p06o3")
+texture_pressed = ExtResource("23_ie6r5")
+texture_hover = ExtResource("19_eic7k")
+stretch_mode = 0
+
+[node name="CancelLabel" type="Label" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -55.0
+offset_top = -65.0
+offset_right = -7.0
+offset_bottom = -42.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_i11dh")
+text = "Cancel"
+
+[node name="EndTurnMessage" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 87.0
+offset_top = -43.0
+offset_right = 507.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_i11dh")
+theme_override_font_sizes/font_size = 30
+text = "Press ENTER to end your turn"
+
+[node name="OgreCost" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = -123.0
+offset_right = 58.0
+offset_bottom = -108.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_i11dh")
+text = "$150"
+
+[node name="GoblinCost" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = -139.0
+offset_right = 58.0
+offset_bottom = -124.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_i11dh")
+text = "$70"
+
+[node name="OgreCost2" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = -106.0
+offset_right = 58.0
+offset_bottom = -91.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_i11dh")
+text = "$400"

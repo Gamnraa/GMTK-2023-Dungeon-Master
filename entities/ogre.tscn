@@ -17,9 +17,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i0obt"]
 size = Vector2(30, 31)
 
-[node name="ogre" type="Area2D"]
+[node name="ogre" type="Area2D" groups=["monsters"]]
 script = ExtResource("1_7vslc")
-defense = 50
+MAX_HEALTH = 200
+offense = 10
+defense = 22
+entity_name = "OGRE"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wr1jq")
