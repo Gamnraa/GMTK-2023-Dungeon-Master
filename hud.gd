@@ -18,6 +18,7 @@ func _ready():
 func start():
 	show()
 	$ButtonX.hide()
+	$CancelLabel.hide()
 	
 func enable_buy(button):
 	button.disabled = false

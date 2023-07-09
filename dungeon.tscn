@@ -179,6 +179,7 @@ wait_time = 2.0
 [node name="Camera2D" parent="." instance=ExtResource("13_clalo")]
 position = Vector2(559, 360)
 
+[connection signal="gold_changed" from="." to="HUD" method="on_update_gold"]
 [connection signal="heroes_turn" from="." to="HUD" method="on_player_turn_end"]
 [connection signal="moves_changed" from="." to="HUD" method="on_moves_changed"]
 [connection signal="next_turn" from="." to="HUD" method="on_player_turn_start"]

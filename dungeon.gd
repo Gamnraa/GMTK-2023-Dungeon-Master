@@ -129,6 +129,9 @@ func on_begin_purchase_goblin():
 	for room in rooms:
 		room.on_gain_focus()
 		room.send_to_room.connect(on_purchase_goblin)
+		
+	$HUD.get_node("ButtonX").show()
+	$HUD.get_node("CancelLabel").show()
 
 func on_cancel_purchase():
 	for r in get_tree().get_nodes_in_group("rooms"):
@@ -136,6 +139,7 @@ func on_cancel_purchase():
 		r.on_lose_focus()
 	
 	$HUD.get_node("ButtonX").hide()
+	$HUD.get_node("CancelLabel").hide()
 		
 func on_purchase_goblin(room):
 	$Player.gold -= $HUD.goblin_cost
@@ -147,4 +151,7 @@ func on_purchase_goblin(room):
 	
 	for r in get_tree().get_nodes_in_group("rooms"):
 		r.on_lose_focus()
+	
+	$HUD.get_node("ButtonX").hide()
+	$HUD.get_node("CancelLabel").hide()
 	

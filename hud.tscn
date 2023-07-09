@@ -195,7 +195,7 @@ texture_pressed = ExtResource("23_ie6r5")
 texture_hover = ExtResource("19_eic7k")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="."]
+[node name="CancelLabel" type="Label" parent="."]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
