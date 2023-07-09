@@ -133,6 +133,23 @@ func on_begin_purchase_goblin():
 	$HUD.get_node("ButtonX").show()
 	$HUD.get_node("CancelLabel").show()
 
+func on_purchase_goblin(room):
+	$Player.gold -= $HUD.goblin_cost
+	gold_changed.emit()
+	
+	var mob = goblin_spawner.instantiate()
+	mob.move_to_room(room)
+	mob.on_lose_focus()
+	add_child(mob)
+	
+	for r in get_tree().get_nodes_in_group("rooms"):
+		r.send_to_room.disconnect(on_purchase_goblin)
+		r.on_lose_focus()
+	
+	$HUD.get_node("ButtonX").hide()
+	$HUD.get_node("CancelLabel").hide()
+	
+	
 func on_cancel_purchase():
 	for r in get_tree().get_nodes_in_group("rooms"):
 		r.send_to_room.disconnect(on_purchase_goblin)
@@ -141,17 +158,4 @@ func on_cancel_purchase():
 	$HUD.get_node("ButtonX").hide()
 	$HUD.get_node("CancelLabel").hide()
 		
-func on_purchase_goblin(room):
-	$Player.gold -= $HUD.goblin_cost
-	gold_changed.emit()
-	
-	var mob = goblin_spawner.instantiate()
-	mob.move_to_room(room)
-	add_child(mob)
-	
-	for r in get_tree().get_nodes_in_group("rooms"):
-		r.on_lose_focus()
-	
-	$HUD.get_node("ButtonX").hide()
-	$HUD.get_node("CancelLabel").hide()
 	
