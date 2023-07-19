@@ -1,5 +1,6 @@
 extends Area2D
 
+var total_members
 var alive_members
 var moves_left = 0
 var in_combat
@@ -26,7 +27,7 @@ func move_to_room(room):
 
 func heal_or_revive():
 	print("heal_or_revive")
-	if moves_left >= 2 and alive_members.size() < get_children().size() - 1:
+	if moves_left >= 2 and alive_members.size() < total_members:
 		if $cleric.is_dead:
 			$cleric.action_revive.emit()
 			perform_action.emit(2)
@@ -56,7 +57,7 @@ func get_actions():
 	var num_members_alive = alive_members.size()
 		
 	in_combat = curr_room.num_monsters > 0
-	var revive_weight = get_children().size() - 1 - num_members_alive * 20
+	var revive_weight = total_members - num_members_alive * 20
 	#we'll code this logic later. Most of this will likely change
 	print("perform action")
 	var heal_weight = 0
@@ -92,6 +93,7 @@ func _ready():
 	
 func start():
 	alive_members = [$man_at_arms, $paladin, $cleric]
+	total_members = alive_members.size()
 	for hero in alive_members: hero.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
