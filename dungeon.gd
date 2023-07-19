@@ -195,6 +195,7 @@ func on_purchase_goblin(room):
 	var mob = goblin_spawner.instantiate()
 	mob.move_to_room(room)
 	mob.on_lose_focus()
+	mob.selectable = true
 	add_child(mob)
 	
 	for r in get_tree().get_nodes_in_group("rooms"):
@@ -227,6 +228,7 @@ func on_purchase_ogre(room):
 	var mob = ogre_spawner.instantiate()
 	mob.move_to_room(room)
 	mob.on_lose_focus()
+	mob.selectable = true
 	add_child(mob)
 	
 	for r in get_tree().get_nodes_in_group("rooms"):
@@ -260,6 +262,7 @@ func on_purchase_slasher(room):
 	var mob = slasher_spawner.instantiate()
 	mob.move_to_room(room)
 	mob.on_lose_focus()
+	mob.selectable = true
 	add_child(mob)
 	
 	for r in get_tree().get_nodes_in_group("rooms"):
