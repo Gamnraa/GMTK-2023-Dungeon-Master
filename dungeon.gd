@@ -94,6 +94,9 @@ func start():
 	$HUD.get_node("ButtonSlasher").pressed.connect(on_begin_purchase_slasher)
 	$HUD.get_node("ButtonX").pressed.connect(on_cancel_purchase)
 	
+	for monster in get_tree().get_nodes_in_group("monsters"):
+			monster.selectable = true
+	
 
 func on_use_move(amount):
 	moves_left -= amount
@@ -127,6 +130,8 @@ func _on_next_turn():
 		$PartyTimer.start()
 		moves_left = 3
 		heroes_turn.emit()
+		for monster in get_tree().get_nodes_in_group("monsters"):
+			monster.selectable = false
 	else:
 		$Player.is_turn = true
 		$PartyTimer.stop()
@@ -148,6 +153,9 @@ func _on_next_turn():
 		
 		$Player.gold += gold_yield
 		gold_changed.emit()
+		
+		for monster in get_tree().get_nodes_in_group("monsters"):
+			monster.selectable = true
 		
 	turn += 1
 	active_player = turn % 2

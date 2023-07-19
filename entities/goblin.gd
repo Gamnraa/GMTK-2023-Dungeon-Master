@@ -16,6 +16,7 @@ var curr_room
 
 var mouse_over = false
 var selected = false
+var selectable = false
 
 
 
@@ -102,7 +103,7 @@ func _on_dead():
 
 
 func _on_mouse_entered():
-	mouse_over = true
+	if selectable: mouse_over = true
 
 
 func _on_mouse_exited():
