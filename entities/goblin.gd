@@ -89,6 +89,7 @@ func _ready():
 	health = MAX_HEALTH
 	is_dead = false
 	movable = true
+	$Selector.hide()
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -103,11 +104,14 @@ func _on_dead():
 
 
 func _on_mouse_entered():
-	if selectable: mouse_over = true
+	if selectable: 
+		mouse_over = true
+		$Selector.show()
 
 
 func _on_mouse_exited():
 	mouse_over = false
+	$Selector.hide()
 
 
 func _on_action_attack(target):

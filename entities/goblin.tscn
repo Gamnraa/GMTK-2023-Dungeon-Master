@@ -35,6 +35,14 @@ animation = &"idle"
 position = Vector2(-1.5, 4.5)
 shape = SubResource("RectangleShape2D_1hh0n")
 
+[node name="Selector" type="ColorRect" parent="."]
+process_mode = 4
+offset_left = -13.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 19.0
+color = Color(1, 1, 1, 0.145098)
+
 [connection signal="action_attack" from="." to="." method="_on_action_attack"]
 [connection signal="attacked" from="." to="." method="_on_attacked"]
 [connection signal="dead" from="." to="." method="_on_dead"]
