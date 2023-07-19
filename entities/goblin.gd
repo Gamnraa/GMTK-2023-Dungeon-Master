@@ -80,6 +80,9 @@ func on_lose_focus():
 		for room in curr_room.prev_rooms:
 			room.on_lose_focus()
 			room.send_to_room.disconnect(move_to_room)
+	
+	Global.TheParty.active = false		
+	Global.TheParty.get_node("AttackIndicator").hide()
 			
 	Global.TheDungeon.get_node("HUD").get_node("ButtonX").hide()
 	Global.TheDungeon.get_node("HUD").get_node("CancelLabel").hide()
