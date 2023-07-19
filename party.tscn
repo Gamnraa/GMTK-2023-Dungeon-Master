@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://46lwm1amrp2s" path="res://entities/cleric.tscn" id="4_xa0tq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6p2sn"]
-size = Vector2(77, 87)
+size = Vector2(70, 86)
 
 [node name="party" type="Area2D"]
 disable_mode = 2
@@ -21,14 +21,10 @@ scale = Vector2(1, 1)
 position = Vector2(34, -24)
 scale = Vector2(1, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visibility_layer = 0
-position = Vector2(22.5, -26.5)
-shape = SubResource("RectangleShape2D_6p2sn")
-
 [node name="cleric" parent="." instance=ExtResource("4_xa0tq")]
 
 [node name="AttackIndicator" type="ColorRect" parent="."]
+process_mode = 4
 offset_left = -19.0
 offset_top = -70.0
 offset_right = 51.0
@@ -36,11 +32,18 @@ offset_bottom = 16.0
 color = Color(1, 0, 0, 0.513726)
 
 [node name="AttackHighlight" type="ColorRect" parent="."]
+process_mode = 4
+visible = false
 offset_left = -19.0
 offset_top = -70.0
 offset_right = 51.0
 offset_bottom = 16.0
 color = Color(1, 1, 1, 0.235294)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visibility_layer = 0
+position = Vector2(16, -27)
+shape = SubResource("RectangleShape2D_6p2sn")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

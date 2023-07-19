@@ -62,6 +62,7 @@ func on_gain_focus():
 					room.send_to_room.connect(move_to_room)
 	elif curr_room.has_party:
 		Global.TheParty.active = true
+		Global.TheParty.get_node("AttackIndicator").show()
 	
 	Global.TheDungeon.get_node("HUD").get_node("ButtonX").show()
 	Global.TheDungeon.get_node("HUD").get_node("CancelLabel").show()

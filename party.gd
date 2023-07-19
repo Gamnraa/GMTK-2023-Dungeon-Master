@@ -95,6 +95,8 @@ func start():
 	alive_members = [$man_at_arms, $paladin, $cleric]
 	total_members = alive_members.size()
 	for hero in alive_members: hero.start()
+	$AttackIndicator.hide()
+	$AttackHighlight.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -119,14 +121,17 @@ func _on_cleric_dead():
 
 func _on_mouse_entered():
 	if active: selectable = true
+	if $AttackIndicator.visible: $AttackHighlight.show()
 
 
 func _on_mouse_exited():
 	selectable = false
-	
+	$AttackHighlight.hide()
 
 func on_attacked(attacker):
 	var target = randi() % alive_members.size()
 	attacker.action_attack.emit(alive_members[target])
 	active = false
+	$AttackIndicator.hide()
+	$AttackHighlight.hide()
 	perform_action.emit(1)
