@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b15ehv2gu1d4n"]
+[gd_scene load_steps=7 format=3 uid="uid://b15ehv2gu1d4n"]
 
 [ext_resource type="Script" path="res://party.gd" id="1_yb3o6"]
 [ext_resource type="PackedScene" uid="uid://c16yn6farik7x" path="res://entities/man_at_arms.tscn" id="2_lbyk8"]
 [ext_resource type="PackedScene" uid="uid://w7iuoxqntqu4" path="res://entities/paladin.tscn" id="3_ome3f"]
 [ext_resource type="PackedScene" uid="uid://46lwm1amrp2s" path="res://entities/cleric.tscn" id="4_xa0tq"]
+[ext_resource type="FontFile" uid="uid://ix3744661s47" path="res://art/DebugMenu.ttf" id="5_4cbnp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6p2sn"]
 size = Vector2(70, 86)
@@ -44,6 +45,16 @@ color = Color(1, 1, 1, 0.235294)
 visibility_layer = 0
 position = Vector2(16, -27)
 shape = SubResource("RectangleShape2D_6p2sn")
+
+[node name="AttackLabel" type="Label" parent="."]
+process_mode = 4
+offset_left = -8.0
+offset_top = -36.0
+offset_right = 42.0
+offset_bottom = -10.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_4cbnp")
+text = "Attack"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
