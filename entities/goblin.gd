@@ -49,6 +49,7 @@ func _input(event):
 		
 func on_gain_focus():
 	selected = true
+	Global.TheDungeon.toggle_monsters_selectable()
 	if can_move():
 		if curr_room.next_rooms:
 			for room in curr_room.next_rooms:
@@ -71,6 +72,7 @@ func on_gain_focus():
 		
 func on_lose_focus():
 	selected = false
+	Global.TheDungeon.toggle_monsters_selectable()
 	if curr_room.next_rooms:
 		for room in curr_room.next_rooms:
 			room.on_lose_focus()

@@ -304,6 +304,10 @@ func _on_party_defeated():
 	stop_game()
 	
 
-
 func _on_timer_timeout():
 	cooldown = true
+	
+
+func toggle_monsters_selectable():
+	for monster in get_tree().get_nodes_in_group("monsters"):
+		monster.selectable = !monster.selectable
