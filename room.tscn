@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dld3l004t72k"]
+[gd_scene load_steps=3 format=3 uid="uid://dld3l004t72k"]
 
 [ext_resource type="Script" path="res://room.gd" id="1_ltq06"]
+[ext_resource type="FontFile" uid="uid://ix3744661s47" path="res://art/DebugMenu.ttf" id="2_8sd1c"]
 
 [node name="room" type="Button" groups=["rooms"]]
 process_priority = -1
@@ -17,4 +18,19 @@ position = Vector2(30, 100)
 [node name="MonsterPosition" type="Marker2D" parent="."]
 position = Vector2(120, 100)
 
+[node name="MoveLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -31.5
+offset_right = 31.5
+offset_bottom = 26.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_8sd1c")
+text = "Move to"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="." to="." method="_on_button_pressed"]

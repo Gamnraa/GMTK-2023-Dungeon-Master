@@ -16,6 +16,7 @@ var curr_room
 
 var mouse_over = false
 var selected = false
+var selectable = false
 
 
 
@@ -48,6 +49,7 @@ func _input(event):
 		
 func on_gain_focus():
 	selected = true
+	Global.TheDungeon.toggle_monsters_selectable()
 	if can_move():
 		if curr_room.next_rooms:
 			for room in curr_room.next_rooms:
@@ -62,6 +64,7 @@ func on_gain_focus():
 					room.send_to_room.connect(move_to_room)
 	elif curr_room.has_party:
 		Global.TheParty.active = true
+		Global.TheParty.get_node("AttackIndicator").show()
 	
 	Global.TheDungeon.get_node("HUD").get_node("ButtonX").show()
 	Global.TheDungeon.get_node("HUD").get_node("CancelLabel").show()
@@ -69,6 +72,7 @@ func on_gain_focus():
 		
 func on_lose_focus():
 	selected = false
+	if Global.TheDungeon.active_player == 0: Global.TheDungeon.toggle_monsters_selectable()
 	if curr_room.next_rooms:
 		for room in curr_room.next_rooms:
 			room.on_lose_focus()
@@ -78,6 +82,9 @@ func on_lose_focus():
 		for room in curr_room.prev_rooms:
 			room.on_lose_focus()
 			room.send_to_room.disconnect(move_to_room)
+	
+	Global.TheParty.active = false		
+	Global.TheParty.get_node("AttackIndicator").hide()
 			
 	Global.TheDungeon.get_node("HUD").get_node("ButtonX").hide()
 	Global.TheDungeon.get_node("HUD").get_node("CancelLabel").hide()
@@ -87,6 +94,7 @@ func _ready():
 	health = MAX_HEALTH
 	is_dead = false
 	movable = true
+	$Selector.hide()
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -101,11 +109,14 @@ func _on_dead():
 
 
 func _on_mouse_entered():
-	mouse_over = true
+	if selectable: 
+		mouse_over = true
+		$Selector.show()
 
 
 func _on_mouse_exited():
 	mouse_over = false
+	$Selector.hide()
 
 
 func _on_action_attack(target):
