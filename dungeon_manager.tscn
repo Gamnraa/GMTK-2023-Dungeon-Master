@@ -1,35 +1,35 @@
-[gd_scene load_steps=16 format=3 uid="uid://eymj55j4st1x"]
+[gd_scene load_steps=16 format=3 uid="uid://c8sgvntfdss2r"]
 
-[ext_resource type="Script" path="res://dungeon.gd" id="1_4htoj"]
-[ext_resource type="PackedScene" uid="uid://dld3l004t72k" path="res://room.tscn" id="1_sqd64"]
-[ext_resource type="PackedScene" uid="uid://x26np5e43ra7" path="res://entities/goblin.tscn" id="2_0b16p"]
-[ext_resource type="PackedScene" uid="uid://b15ehv2gu1d4n" path="res://party.tscn" id="2_xa2to"]
-[ext_resource type="PackedScene" uid="uid://gkq3h6uc7inm" path="res://entities/ogre.tscn" id="3_b15vj"]
-[ext_resource type="PackedScene" uid="uid://cmueeposqq4hp" path="res://entities/player.tscn" id="3_e0vf8"]
-[ext_resource type="PackedScene" uid="uid://lfog0l0a6pg2" path="res://entities/slasher.tscn" id="4_kmlmb"]
-[ext_resource type="Texture2D" uid="uid://dtb875ybtf1cc" path="res://art/Intersecting room.png" id="8_xisdl"]
-[ext_resource type="Texture2D" uid="uid://we6kumdgco1i" path="res://art/hallway_single_double.png" id="9_im3jh"]
-[ext_resource type="Texture2D" uid="uid://cln6nupo4fw8j" path="res://art/hallway_double_single.png" id="10_r361j"]
-[ext_resource type="PackedScene" uid="uid://dbifcttwdtl5" path="res://treasure.tscn" id="11_ig0ev"]
-[ext_resource type="Texture2D" uid="uid://c2rah10ffc147" path="res://art/big intersecting.png" id="11_mc5vg"]
-[ext_resource type="Texture2D" uid="uid://dgmxwcdn4jcsh" path="res://art/big boss room.png" id="12_sfmm3"]
-[ext_resource type="PackedScene" uid="uid://0s2qccdsqawt" path="res://hud.tscn" id="13_24xdy"]
-[ext_resource type="PackedScene" uid="uid://bmfmy4mpps80b" path="res://camera_2d.tscn" id="13_clalo"]
+[ext_resource type="Script" path="res://dungeon_manager.gd" id="1_s3rnr"]
+[ext_resource type="PackedScene" uid="uid://x26np5e43ra7" path="res://entities/goblin.tscn" id="2_m602l"]
+[ext_resource type="PackedScene" uid="uid://gkq3h6uc7inm" path="res://entities/ogre.tscn" id="3_jq2o7"]
+[ext_resource type="PackedScene" uid="uid://lfog0l0a6pg2" path="res://entities/slasher.tscn" id="4_ytddw"]
+[ext_resource type="PackedScene" uid="uid://dbifcttwdtl5" path="res://treasure.tscn" id="5_1jdak"]
+[ext_resource type="Texture2D" uid="uid://dtb875ybtf1cc" path="res://art/Intersecting room.png" id="6_a5q6c"]
+[ext_resource type="Texture2D" uid="uid://we6kumdgco1i" path="res://art/hallway_single_double.png" id="7_tkoyc"]
+[ext_resource type="Texture2D" uid="uid://cln6nupo4fw8j" path="res://art/hallway_double_single.png" id="8_rh0p7"]
+[ext_resource type="Texture2D" uid="uid://c2rah10ffc147" path="res://art/big intersecting.png" id="9_nklmx"]
+[ext_resource type="Texture2D" uid="uid://dgmxwcdn4jcsh" path="res://art/big boss room.png" id="10_1np4x"]
+[ext_resource type="PackedScene" uid="uid://dld3l004t72k" path="res://room.tscn" id="11_7a4qj"]
+[ext_resource type="PackedScene" uid="uid://b15ehv2gu1d4n" path="res://party.tscn" id="12_pkwc4"]
+[ext_resource type="PackedScene" uid="uid://cmueeposqq4hp" path="res://entities/player.tscn" id="13_hk75r"]
+[ext_resource type="PackedScene" uid="uid://0s2qccdsqawt" path="res://hud.tscn" id="14_4tp7g"]
+[ext_resource type="PackedScene" uid="uid://bmfmy4mpps80b" path="res://camera_2d.tscn" id="15_j8nx4"]
 
 [node name="dungeon" type="Node2D"]
 position = Vector2(46, 0)
-script = ExtResource("1_4htoj")
-goblin_spawner = ExtResource("2_0b16p")
-ogre_spawner = ExtResource("3_b15vj")
-slasher_spawner = ExtResource("4_kmlmb")
-treasure_spawner = ExtResource("11_ig0ev")
+script = ExtResource("1_s3rnr")
+goblin_spawner = ExtResource("2_m602l")
+ogre_spawner = ExtResource("3_jq2o7")
+slasher_spawner = ExtResource("4_ytddw")
+treasure_spawner = ExtResource("5_1jdak")
 
 [node name="bg1" type="TextureRect" parent="."]
 offset_left = -41.0
 offset_top = 179.25
 offset_right = 123.0
 offset_bottom = 393.25
-texture = ExtResource("8_xisdl")
+texture = ExtResource("6_a5q6c")
 metadata/_edit_use_anchors_ = true
 
 [node name="HallwaySingleDouble2" type="TextureRect" parent="."]
@@ -37,7 +37,7 @@ offset_left = 830.0
 offset_top = 142.25
 offset_right = 958.0
 offset_bottom = 430.25
-texture = ExtResource("9_im3jh")
+texture = ExtResource("7_tkoyc")
 metadata/_edit_use_anchors_ = true
 
 [node name="HallwaySingleDouble" type="TextureRect" parent="."]
@@ -45,7 +45,7 @@ offset_left = 123.0
 offset_top = 142.25
 offset_right = 251.0
 offset_bottom = 430.25
-texture = ExtResource("9_im3jh")
+texture = ExtResource("7_tkoyc")
 metadata/_edit_use_anchors_ = true
 
 [node name="HallwayDoubleSingle" type="TextureRect" parent="."]
@@ -53,132 +53,132 @@ offset_left = 524.0
 offset_top = 142.25
 offset_right = 652.0
 offset_bottom = 430.25
-texture = ExtResource("10_r361j")
+texture = ExtResource("8_rh0p7")
 metadata/_edit_use_anchors_ = true
 
 [node name="BigIntersecting" type="Sprite2D" parent="."]
 position = Vector2(389, 190.25)
 scale = Vector2(1.4375, 1.30625)
-texture = ExtResource("11_mc5vg")
+texture = ExtResource("9_nklmx")
 
 [node name="IntersectingRoom" type="Sprite2D" parent="."]
 position = Vector2(388.875, 382.25)
 scale = Vector2(2.17383, 1.34062)
-texture = ExtResource("8_xisdl")
+texture = ExtResource("6_a5q6c")
 
 [node name="IntersectingRoom2" type="Sprite2D" parent="."]
 position = Vector2(741, 286.25)
 scale = Vector2(1.40625, 1.33125)
-texture = ExtResource("8_xisdl")
+texture = ExtResource("6_a5q6c")
 
 [node name="IntersectingRoom3" type="Sprite2D" parent="."]
 position = Vector2(1097, 190.25)
 scale = Vector2(2.17383, 1.34062)
-texture = ExtResource("8_xisdl")
+texture = ExtResource("6_a5q6c")
 
 [node name="IntersectingRoom4" type="Sprite2D" parent="."]
 position = Vector2(1095, 382.25)
 scale = Vector2(2.17383, 1.34062)
-texture = ExtResource("8_xisdl")
+texture = ExtResource("6_a5q6c")
 
 [node name="IntersectingRoom5" type="Sprite2D" parent="."]
 position = Vector2(1375.13, 190.5)
 scale = Vector2(2.17383, 1.34062)
-texture = ExtResource("8_xisdl")
+texture = ExtResource("6_a5q6c")
 
 [node name="IntersectingRoom6" type="Sprite2D" parent="."]
 position = Vector2(1373.12, 382.5)
 scale = Vector2(2.17383, 1.34062)
-texture = ExtResource("8_xisdl")
+texture = ExtResource("6_a5q6c")
 
 [node name="HallwayDoubleSingle2" type="TextureRect" parent="."]
 offset_left = 1512.0
 offset_top = 142.25
 offset_right = 1640.0
 offset_bottom = 430.25
-texture = ExtResource("10_r361j")
+texture = ExtResource("8_rh0p7")
 metadata/_edit_use_anchors_ = true
 
 [node name="BigBossRoom" type="Sprite2D" parent="."]
 position = Vector2(1760, 286.25)
 scale = Vector2(1.25521, 1.34375)
-texture = ExtResource("12_sfmm3")
+texture = ExtResource("10_1np4x")
 
-[node name="room" parent="." instance=ExtResource("1_sqd64")]
+[node name="room" parent="." instance=ExtResource("11_7a4qj")]
 offset_left = -21.0
 offset_top = 199.0
 offset_right = 124.0
 offset_bottom = 405.0
 metadata/_edit_use_anchors_ = true
 
-[node name="room1_1" parent="." instance=ExtResource("1_sqd64")]
+[node name="room1_1" parent="." instance=ExtResource("11_7a4qj")]
 offset_left = 274.0
 offset_top = 106.0
 offset_right = 544.0
 offset_bottom = 306.0
 metadata/_edit_use_anchors_ = true
 
-[node name="room1_2" parent="." instance=ExtResource("1_sqd64")]
+[node name="room1_2" parent="." instance=ExtResource("11_7a4qj")]
 offset_left = 285.0
 offset_top = 297.0
 offset_right = 531.0
 offset_bottom = 498.0
 metadata/_edit_use_anchors_ = true
 
-[node name="room2" parent="." instance=ExtResource("1_sqd64")]
+[node name="room2" parent="." instance=ExtResource("11_7a4qj")]
 offset_left = 675.0
 offset_top = 201.0
 offset_right = 834.0
 offset_bottom = 401.0
 metadata/_edit_use_anchors_ = true
 
-[node name="room2_2" parent="." instance=ExtResource("1_sqd64")]
+[node name="room2_2" parent="." instance=ExtResource("11_7a4qj")]
 offset_left = 990.0
 offset_top = 297.0
 offset_right = 1237.0
 offset_bottom = 497.0
 metadata/_edit_use_anchors_ = true
 
-[node name="room2_1" parent="." instance=ExtResource("1_sqd64")]
+[node name="room2_1" parent="." instance=ExtResource("11_7a4qj")]
 offset_left = 993.0
 offset_top = 105.0
 offset_right = 1238.0
 offset_bottom = 305.0
 metadata/_edit_use_anchors_ = true
 
-[node name="room2_1_1" parent="." instance=ExtResource("1_sqd64")]
+[node name="room2_1_1" parent="." instance=ExtResource("11_7a4qj")]
 offset_left = 1269.0
 offset_top = 106.0
 offset_right = 1516.0
 offset_bottom = 305.0
 metadata/_edit_use_anchors_ = true
 
-[node name="room2_2_1" parent="." instance=ExtResource("1_sqd64")]
+[node name="room2_2_1" parent="." instance=ExtResource("11_7a4qj")]
 offset_left = 1271.0
 offset_top = 295.0
 offset_right = 1517.0
 offset_bottom = 501.0
 metadata/_edit_use_anchors_ = true
 
-[node name="room3" parent="." instance=ExtResource("1_sqd64")]
+[node name="room3" parent="." instance=ExtResource("11_7a4qj")]
 offset_left = 1659.0
 offset_top = 201.0
 offset_right = 1897.0
 offset_bottom = 401.0
 metadata/_edit_use_anchors_ = true
 
-[node name="party" parent="." instance=ExtResource("2_xa2to")]
+[node name="party" parent="." instance=ExtResource("12_pkwc4")]
 position = Vector2(-4, 86)
 
-[node name="Player" parent="." instance=ExtResource("3_e0vf8")]
+[node name="Player" parent="." instance=ExtResource("13_hk75r")]
 position = Vector2(1835, 223)
 
 [node name="PartyTimer" type="Timer" parent="."]
 wait_time = 2.0
 
-[node name="HUD" parent="." instance=ExtResource("13_24xdy")]
+[node name="HUD" parent="." instance=ExtResource("14_4tp7g")]
 
-[node name="Camera2D" parent="." instance=ExtResource("13_clalo")]
+[node name="Camera2D" parent="." instance=ExtResource("15_j8nx4")]
 position = Vector2(559, 360)
 
 [node name="Timer" type="Timer" parent="."]
