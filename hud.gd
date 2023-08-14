@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 var messages = ["", "", ""]
+var message_focus = 0
 var message_labels = [$Message1, $Message2, $Message3]
 var goblin_cost = 70
 var slasher_cost = 400
@@ -79,13 +80,12 @@ func on_update_gold():
 func on_moves_changed():
 	$MovesLabel.text = str(Global.TheDungeon.moves_left)
 	
+func update_messages():
+	for i in range(3):
+		message_labels[i].text = messages[i + message_focus]
+	
 func on_receive_message(message):
 	print(message)
-	messages[2] = messages[1]
-	messages[1] = messages[0]
-	messages[0] = message
-	var i = 0
-	for text in messages:
-		message_labels[i].text = messages[i]
-		i += 1
+	messages.push_front(message)
+	update_messages()
 	
