@@ -89,3 +89,13 @@ func on_receive_message(message):
 	messages.push_front(message)
 	update_messages()
 	
+
+
+func _on_message_up_pressed():
+	if message_focus < messages.size(): message_focus += 1
+	update_messages()
+
+
+func _on_message_down_pressed():
+	if message_focus > 0: message_focus -= 1
+	update_messages()

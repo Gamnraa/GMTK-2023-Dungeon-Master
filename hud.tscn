@@ -302,3 +302,6 @@ grow_vertical = 0
 texture_normal = ExtResource("25_es7r5")
 texture_pressed = ExtResource("26_qteob")
 texture_hover = ExtResource("27_3wioi")
+
+[connection signal="pressed" from="MessageDown" to="." method="_on_message_down_pressed"]
+[connection signal="pressed" from="MessageUp" to="." method="_on_message_up_pressed"]
