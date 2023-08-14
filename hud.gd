@@ -81,7 +81,10 @@ func on_moves_changed():
 	$MovesLabel.text = str(Global.TheDungeon.moves_left)
 	
 func update_messages():
-	for i in range(3):
+	var len = 3
+	print(message_focus)
+	if messages.size() < len: len = messages.size()
+	for i in range(len):
 		message_labels[i].text = messages[i + message_focus]
 	
 func on_receive_message(message):
@@ -92,7 +95,8 @@ func on_receive_message(message):
 
 
 func _on_message_up_pressed():
-	if message_focus < messages.size(): message_focus += 1
+
+	if message_focus + 3 < messages.size() - 1: message_focus += 1
 	update_messages()
 
 
