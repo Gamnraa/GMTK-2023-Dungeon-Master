@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://0s2qccdsqawt"]
+[gd_scene load_steps=28 format=3 uid="uid://0s2qccdsqawt"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_g5gd0"]
 [ext_resource type="Texture2D" uid="uid://xeamh8elggur" path="res://art/title_gold.png" id="1_xhl3e"]
@@ -24,6 +24,9 @@
 [ext_resource type="Texture2D" uid="uid://c06yiqosy03m" path="res://art/button_x.png" id="18_p06o3"]
 [ext_resource type="Texture2D" uid="uid://c2rmkkrsrg3ot" path="res://art/button_x_high.png" id="19_eic7k"]
 [ext_resource type="Texture2D" uid="uid://534umintri8q" path="res://art/button_x_press.png" id="23_ie6r5"]
+[ext_resource type="Texture2D" uid="uid://b6f1fgdskifdx" path="res://art/button_up.png" id="25_es7r5"]
+[ext_resource type="Texture2D" uid="uid://bnusybydpxh81" path="res://art/button_up_press.png" id="26_qteob"]
+[ext_resource type="Texture2D" uid="uid://byn24g37k86qg" path="res://art/button_up_high.png" id="27_3wioi"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_g5gd0")
@@ -266,3 +269,36 @@ grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("16_i11dh")
 text = "$400"
+
+[node name="MessageDown" type="TextureButton" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -26.0
+offset_right = 48.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("25_es7r5")
+texture_pressed = ExtResource("26_qteob")
+texture_hover = ExtResource("27_3wioi")
+flip_v = true
+
+[node name="MessageUp" type="TextureButton" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -26.0
+offset_right = 32.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("25_es7r5")
+texture_pressed = ExtResource("26_qteob")
+texture_hover = ExtResource("27_3wioi")
