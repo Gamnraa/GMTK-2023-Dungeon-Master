@@ -62,6 +62,7 @@ func get_actions():
 	print("perform action")
 	var heal_weight = 0
 	for hero in alive_members:
+		print(hero)
 		heal_weight += (hero.MAX_HEALTH - hero.health)
 		
 	print(heal_weight)

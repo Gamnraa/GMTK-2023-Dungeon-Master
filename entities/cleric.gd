@@ -2,7 +2,7 @@ extends AnimatedSprite2D
 
 const Hero = preload("res://entities/hero_common.gd")
 
-var hero: Hero
+var hero = Hero.new()
 var health
 var is_dead
 
