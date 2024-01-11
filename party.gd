@@ -104,6 +104,11 @@ func _process(delta):
 	pass
 
 
+func _on_party_member_dead(member):
+	member.is_dead = true
+	alive_members.erase(member)
+	if alive_members.size() < 1: defeated.emit()
+
 func _on_man_at_arms_dead():
 	$man_at_arms.is_dead = true
 	alive_members.erase($man_at_arms)
