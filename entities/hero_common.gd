@@ -13,21 +13,6 @@ signal attacked
 
 var is_dead
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	hide()
-	
-	
-func start():
-	show()
-	#health = MAX_HEALTH
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_dead():
 	hide()
 	is_dead = true
@@ -58,3 +43,11 @@ func _on_action_attack(target):
 func _on_attacked():
 	if health <= 0:
 		dead.emit()
+		
+func _on_action_heal(target):
+	var heal = randi() % target.MAX_HEALTH / 10 + 15
+	print("healing ", heal)
+	target.health += heal
+	if target.health > target.MAX_HEALTH: target.health = target.MAX_HEALTH
+	var message = entity_name + " healed " + str(heal) + " health!"
+	Global.TheDungeon.received_message.emit(message)
