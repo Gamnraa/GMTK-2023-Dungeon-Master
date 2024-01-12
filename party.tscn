@@ -58,5 +58,3 @@ text = "Attack"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
-[connection signal="dead" from="man_at_arms" to="." method="_on_man_at_arms_dead"]
-[connection signal="dead" from="paladin" to="." method="_on_paladin_dead"]

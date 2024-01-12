@@ -16,6 +16,7 @@ var is_dead
 func _init():
 	print("ready")
 	action_attack.connect(_on_action_attack)
+	action_revive.connect(_on_action_revive)
 
 func _on_dead():
 	hide()

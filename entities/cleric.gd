@@ -11,7 +11,6 @@ func _ready():
 	hide()
 	
 	
-	
 func start():
 	show()
 	hero.MAX_HEALTH = 180
@@ -19,6 +18,7 @@ func start():
 	hero.defense = 15
 	hero.health = hero.MAX_HEALTH
 	hero.entity_name = "CLERIC"
+	#hero._on_action_heal = _on_action_heal
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -26,7 +26,7 @@ func _process(delta):
 
 func _on_action_heal(target):
 	var heal = randi() % target.MAX_HEALTH / 5 + 30
-	print("healing ", heal)
+	print("CLERIC healing ", heal)
 	target.health += heal
 	if target.health > target.MAX_HEALTH: target.health = target.MAX_HEALTH
 	var message = "CLERIC healed " + str(heal) + " health!"

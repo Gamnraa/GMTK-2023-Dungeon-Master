@@ -45,11 +45,11 @@ func heal_or_revive():
 			return
 	var needs_heal = []
 	for hero in alive_members:
-		if hero.health < hero.MAX_HEALTH:
+		if hero.hero.health < hero.hero.MAX_HEALTH:
 			needs_heal.append(hero)
 	var target = randi() % needs_heal.size()
 	print("heal ", needs_heal[target])
-	needs_heal[target].action_heal.emit(needs_heal[target])
+	needs_heal[target].hero.action_heal.emit(needs_heal[target])
 	perform_action.emit(1)
 	moves_left -= 1
 
@@ -62,11 +62,7 @@ func get_actions():
 	print("perform action")
 	var heal_weight = 0
 	for hero in alive_members:
-		print(hero)
-		if hero == $cleric:
-			heal_weight+= (hero.hero.MAX_HEALTH - hero.hero.health)
-		else:	
-			heal_weight += (hero.MAX_HEALTH - hero.health)
+		heal_weight+= (hero.hero.MAX_HEALTH - hero.hero.health)
 		
 	print(heal_weight)
 	if not in_combat:
@@ -96,7 +92,7 @@ func _ready():
 	Global.TheParty = self
 	
 func start():
-	alive_members = [$cleric]
+	alive_members = [$cleric, $man_at_arms, $paladin]
 	total_members = alive_members.size()
 	for hero in alive_members: hero.start()
 	$AttackIndicator.hide()
