@@ -19,9 +19,6 @@ func start():
 	hero.defense = 15
 	hero.health = hero.MAX_HEALTH
 	hero.entity_name = "CLERIC"
-	
-	hero.action_attack.connect(hero._on_action_attack)
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

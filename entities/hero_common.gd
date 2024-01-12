@@ -13,6 +13,10 @@ signal attacked
 
 var is_dead
 
+func _init():
+	print("ready")
+	action_attack.connect(_on_action_attack)
+
 func _on_dead():
 	hide()
 	is_dead = true
