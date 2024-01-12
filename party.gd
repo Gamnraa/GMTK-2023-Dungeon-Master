@@ -64,7 +64,7 @@ func get_actions():
 	for hero in alive_members:
 		print(hero)
 		if hero == $cleric:
-			heal_weight+= (hero.hero.MAX_HEALTH - hero.health)
+			heal_weight+= (hero.hero.MAX_HEALTH - hero.hero.health)
 		else:	
 			heal_weight += (hero.MAX_HEALTH - hero.health)
 		

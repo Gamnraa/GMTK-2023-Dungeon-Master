@@ -3,7 +3,6 @@ extends AnimatedSprite2D
 const Hero = preload("res://entities/hero_common.gd")
 
 var hero = Hero.new()
-var health
 var is_dead
 
 
@@ -18,7 +17,10 @@ func start():
 	hero.MAX_HEALTH = 180
 	hero.offense = 15
 	hero.defense = 15
-	health = hero.MAX_HEALTH
+	hero.health = hero.MAX_HEALTH
+	hero.entity_name = "CLERIC"
+	
+	hero.action_attack.connect(hero._on_action_attack)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
