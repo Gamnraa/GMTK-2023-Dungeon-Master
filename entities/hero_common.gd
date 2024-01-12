@@ -9,6 +9,7 @@ var entity_name
 signal dead
 signal action_revive(target)
 signal action_attack(target)
+signal action_heal(target)
 signal attacked
 
 var is_dead
@@ -17,6 +18,7 @@ func _init():
 	print("ready")
 	action_attack.connect(_on_action_attack)
 	action_revive.connect(_on_action_revive)
+	action_heal.connect(_on_action_heal)
 
 func _on_dead():
 	hide()
