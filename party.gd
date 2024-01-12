@@ -85,7 +85,7 @@ func get_actions():
 			var target = randi() % curr_room.num_monsters
 			var attacker = randi() %  num_members_alive
 			print(alive_members[attacker], "attack", curr_room.monsters[target])
-			alive_members[attacker].action_attack.emit(curr_room.monsters[target])
+			alive_members[attacker].hero.action_attack.emit(curr_room.monsters[target])
 			perform_action.emit(1)
 			moves_left -= 1
 		else:
@@ -96,7 +96,7 @@ func _ready():
 	Global.TheParty = self
 	
 func start():
-	alive_members = [$man_at_arms, $paladin, $cleric]
+	alive_members = [$cleric]
 	total_members = alive_members.size()
 	for hero in alive_members: hero.start()
 	$AttackIndicator.hide()
