@@ -19,6 +19,7 @@ func _init():
 	action_attack.connect(_on_action_attack)
 	action_revive.connect(_on_action_revive)
 	action_heal.connect(_on_action_heal)
+	attacked.connect(_on_attacked)
 
 func _on_dead():
 	hide()
@@ -49,7 +50,7 @@ func _on_action_attack(target):
 	
 func _on_attacked():
 	if health <= 0:
-		dead.emit()
+		dead.emit(self)
 		
 func _on_action_heal(target):
 	var heal = randi() % target.MAX_HEALTH / 10 + 15

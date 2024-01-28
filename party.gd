@@ -95,7 +95,9 @@ func _ready():
 func start():
 	alive_members = [$cleric, $man_at_arms, $paladin]
 	total_members = alive_members.size()
-	for hero in alive_members: hero.start()
+	for hero in alive_members: 
+		hero.start()
+		hero.hero.dead.connect(_on_party_member_dead)
 	$AttackIndicator.hide()
 	$AttackHighlight.hide()
 	$AttackLabel.hide()
@@ -106,8 +108,10 @@ func _process(delta):
 
 
 func _on_party_member_dead(member):
-	member.hero.is_dead = true
-	alive_members.erase(member)
+	member.is_dead = true
+	for h in alive_members:
+		if h.hero.is_dead:
+			alive_members.erase(h)
 	if alive_members.size() < 1: defeated.emit()
 
 func _on_man_at_arms_dead():
