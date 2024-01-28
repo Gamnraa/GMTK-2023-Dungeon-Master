@@ -141,7 +141,7 @@ func _on_mouse_exited():
 
 func on_attacked(attacker):
 	var target = randi() % alive_members.size()
-	attacker.action_attack.emit(alive_members[target])
+	attacker.action_attack.emit(alive_members[target].hero)
 	active = false
 	$AttackIndicator.hide()
 	$AttackHighlight.hide()
