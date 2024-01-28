@@ -49,7 +49,7 @@ func heal_or_revive():
 			needs_heal.append(hero)
 	var target = randi() % needs_heal.size()
 	print("heal ", needs_heal[target])
-	needs_heal[target].hero.action_heal.emit(needs_heal[target.hero])
+	needs_heal[target].hero.action_heal.emit(needs_heal[target].hero)
 	perform_action.emit(1)
 	moves_left -= 1
 
@@ -63,6 +63,7 @@ func get_actions():
 	var heal_weight = 0
 	for hero in alive_members:
 		heal_weight+= (hero.hero.MAX_HEALTH - hero.hero.health)
+		print(hero, hero.hero.health)
 		
 	print(heal_weight)
 	if not in_combat:
@@ -105,7 +106,7 @@ func _process(delta):
 
 
 func _on_party_member_dead(member):
-	member.is_dead = true
+	member.hero.is_dead = true
 	alive_members.erase(member)
 	if alive_members.size() < 1: defeated.emit()
 
