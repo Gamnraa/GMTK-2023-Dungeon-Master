@@ -49,7 +49,7 @@ func heal_or_revive():
 			needs_heal.append(hero)
 	var target = randi() % needs_heal.size()
 	print("heal ", needs_heal[target])
-	needs_heal[target].hero.action_heal.emit(needs_heal[target])
+	needs_heal[target].hero.action_heal.emit(needs_heal[target.hero])
 	perform_action.emit(1)
 	moves_left -= 1
 
