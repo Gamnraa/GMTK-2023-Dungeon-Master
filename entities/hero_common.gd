@@ -22,9 +22,7 @@ func _init():
 	attacked.connect(_on_attacked)
 
 func _on_dead():
-	hide()
 	is_dead = true
-	Global.TheDungeon.received_message.emit(entity_name + " defeated!")
 
 
 func _on_action_revive():
@@ -51,6 +49,7 @@ func _on_action_attack(target):
 func _on_attacked():
 	if health <= 0:
 		dead.emit(self)
+		_on_dead()
 		
 func _on_action_heal(target):
 	var heal = randi() % target.MAX_HEALTH / 10 + 15

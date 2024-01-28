@@ -112,6 +112,9 @@ func _on_party_member_dead(member):
 	for h in alive_members:
 		if h.hero.is_dead:
 			alive_members.erase(h)
+			h.hide()
+			Global.TheDungeon.received_message.emit(member.entity_name + " defeated!")
+			
 	if alive_members.size() < 1: defeated.emit()
 
 func _on_man_at_arms_dead():
